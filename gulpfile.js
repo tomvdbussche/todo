@@ -2,18 +2,18 @@ var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')();
 
 var src = {
-    scripts: ['src/**/*.js', 'src/*.js'],
-    styles: ['src/styles/*.scss']
+    scripts: ['app/**/*.js', 'app/*.js'],
+    styles: ['app/styles/*.scss']
 };
 
 var dist = {
-    scripts: './dist/javascripts',
-    stylesheets: './dist/stylesheets'
+    scripts: './public/javascripts',
+    stylesheets: './public/stylesheets'
 };
 
 // Lint
 gulp.task('lint', function () {
-    return gulp.src('source/javascript/**/*.js')
+    return gulp.src(src.scripts)
         .pipe(plugins.jshint())
         .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
@@ -21,15 +21,19 @@ gulp.task('lint', function () {
 // Scripts
 gulp.task('scripts', function () {
     return gulp.src(src.scripts)
-        .pipe(plugins.concat('src.min.js'))
+        .pipe(plugins.concat('app.min.js'))
         .pipe(plugins.uglify())
         .pipe(gulp.dest(dist.scripts));
 });
 
 // Styles
 gulp.task('styles', function () {
-    return gulp.src('./src/styles/*.scss')
-        .pipe(plugins.sass())
+    return gulp.src(src.styles)
+        .pipe(plugins.sass({
+            includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
+        }).on('error', plugins.notify.onError(function (error) {
+            return "Error: " + error.message;
+        })))
         .pipe(plugins.cleanCss())
         .pipe(gulp.dest(dist.stylesheets));
 });
