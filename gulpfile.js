@@ -21,7 +21,7 @@ gulp.task('lint', function () {
 // Scripts
 gulp.task('scripts', function () {
     return gulp.src(src.scripts)
-        .pipe(plugins.concat('app.min.js'))
+        .pipe(plugins.concat('app.js'))
         .pipe(plugins.uglify())
         .pipe(gulp.dest(dist.scripts));
 });
