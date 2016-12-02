@@ -2,11 +2,11 @@ var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')();
 
 var src = {
-    scripts: ['app/**/*.js', 'app/*.js'],
-    styles: ['app/styles/*.scss']
+    scripts: ['public/app/**/*.js'],
+    styles: ['public/stylesheets/*.scss']
 };
 
-var dist = {
+var dir = {
     scripts: './public/javascripts',
     stylesheets: './public/stylesheets'
 };
@@ -22,8 +22,11 @@ gulp.task('lint', function () {
 gulp.task('scripts', function () {
     return gulp.src(src.scripts)
         .pipe(plugins.concat('app.js'))
+        .pipe(plugins.babel())
+        .pipe(gulp.dest(dir.scripts))
+        .pipe(plugins.rename('app.min.js'))
         .pipe(plugins.uglify())
-        .pipe(gulp.dest(dist.scripts));
+        .pipe(gulp.dest(dir.scripts));
 });
 
 // Styles
@@ -34,8 +37,10 @@ gulp.task('styles', function () {
         }).on('error', plugins.notify.onError(function (error) {
             return "Error: " + error.message;
         })))
+        .pipe(gulp.dest(dir.stylesheets))
+        .pipe(plugins.rename('styles.min.css'))
         .pipe(plugins.cleanCss())
-        .pipe(gulp.dest(dist.stylesheets));
+        .pipe(gulp.dest(dir.stylesheets));
 });
 
 // Watch

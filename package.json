@@ -9,8 +9,10 @@
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
+    "dotenv": "^2.0.0",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
+    "mongoose": "^4.7.0",
     "morgan": "~1.7.0"
   },
   "devDependencies": {
@@ -24,6 +26,8 @@
     "gulp-jshint": "^2.0.4",
     "gulp-load-plugins": "^1.4.0",
     "gulp-notify": "^2.2.0",
+    "gulp-order": "^1.1.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.4",

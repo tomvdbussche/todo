@@ -1,0 +1,60 @@
+@import "bootstrap/mixins";
+@import "bootstrap/glyphicons";
+@import "bootstrap/buttons";
+@import "bootstrap/panels";
+
+.task-list-panel {
+  @extend .panel;
+  @extend .panel-default;
+
+  .task-list-heading {
+    @extend .panel-heading;
+    @include clearfix;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+
+    .task-list-title {
+      padding-left: 10px;
+    }
+
+    .task-list-buttons {
+      margin-left: auto;
+
+      .task-edit-button {
+        @extend .btn;
+        @extend .btn-default;
+        @extend .btn-sm;
+
+        .task-edit-icon {
+          @extend .glyphicon;
+          @extend .glyphicon-edit;
+        }
+      }
+    }
+  }
+
+  .task-list-progress {
+    @extend .progress;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .task-list {
+    @extend .list-group;
+
+    .task-list-item {
+      @extend .list-group-item;
+      display: flex;
+      align-items: center;
+
+      .task-completion {
+        @extend .checkbox;
+        margin: 0;
+      }
+      .task-name {
+        margin-left: 10px;
+      }
+    }
+  }
+}

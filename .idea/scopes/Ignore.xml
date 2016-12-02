@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Ignore" pattern="!file:public/javascripts/app.js&amp;&amp;!file:public/javascripts/app.min.js&amp;&amp;!file:public/stylesheets/styles.css&amp;&amp;!file:public/stylesheets/styles.min.css" />
+</component>
