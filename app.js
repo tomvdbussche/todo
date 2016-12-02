@@ -3,8 +3,22 @@ import path from "path";
 import logger from "morgan";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import users from "./routes/users";
-import index from "./routes/index";
+import indexRouter from "./routes/index";
+import apiRouter from "./routes/api";
+import usersRouter from "./routes/users";
+import listModel from "./models/list";
+import taskModel from "./models/task";
+import database from "mongoose";
+import dotenv from "dotenv";
+
+// Try to retrieve settings from .env
+dotenv.config();
+
+let dbHost = process.env.DB_HOST || 'localhost';
+let dbName = process.env.DB_NAME || 'todo';
+
+// Connect to database
+database.connect('mongodb://' + dbHost + '/' + dbName);
 
 let app = express();
 
@@ -18,8 +32,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
+app.use('/', indexRouter);
+app.use('/api', apiRouter);
+app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
