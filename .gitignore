@@ -110,3 +110,6 @@ bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
+
+### Environment variables ###
+.env
