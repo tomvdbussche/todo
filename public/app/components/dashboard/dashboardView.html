@@ -1,6 +1,6 @@
 <!-- TODO content -->
-<ul class="list-group">
-    <li class="list-group-item" ng-repeat="list in dashboard.lists">
-        TEST
-    </li>
-</ul>
+<div>
+    <div class="col-md-4" ng-repeat="list in dashboard.lists">
+        <task-list list="list"></task-list>
+    </div>
+</div>

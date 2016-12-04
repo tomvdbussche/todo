@@ -2,7 +2,7 @@ angular
     .module('app.config', [])
     .config(configs);
 
-function configs($httpProvider) {
+function configs($httpProvider, $logProvider) {
     var interceptor = function($location, $log, $q) {
         function error(response) {
             if (response.status === 401) {
@@ -20,7 +20,8 @@ function configs($httpProvider) {
         }
         return function(promise) {
             return promise.then(success, error);
-        }
+        };
     };
     $httpProvider.interceptors.push(interceptor);
+    $logProvider.debugEnabled(true);
 }

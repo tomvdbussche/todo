@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="todoApplication">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='/stylesheets/styles.min.css'/>
@@ -9,11 +9,13 @@
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap-tpls.js"></script>
 
     <script src="javascripts/app.js"></script>
+    <base href="/" />
 </head>
-<body ng-app="todoApplication">
-
+<body>
 <div class="container">
     <div class="page-header">
         <h1>Todo
@@ -21,48 +23,7 @@
         </h1>
     </div>
     <div class="row">
-        <div class="col-md-4">
-            <div class="task-list-panel">
-                <!-- Header -->
-                <div class="task-list-heading">
-                    <div class="task-list-title">
-                        <h3 class="panel-title">List title</h3>
-                    </div>
-                    <div class="task-list-buttons">
-                        <a class="task-edit-button" href="#" role="button" aria-label="Edit">
-                            <span class="task-edit-icon" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <!-- Progress -->
-                    <div class="task-list-progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                             aria-valuemax="100" style="width: 60%;">
-                            <span class="sr-only">60% Complete</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Task items -->
-                <div class="task-list">
-                    <a href="#" class="task-list-item">
-                        <div class="task-completion">
-                            <label>
-                                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                            </label>
-                        </div>
-                        <div class="task-name">
-                            Test
-                        </div>
-                    </a>
-                    <a href="#" class="task-list-item">Cras justo odio</a>
-                    <a href="#" class="task-list-item">Dapibus ac facilisis in</a>
-                    <a href="#" class="task-list-item">Morbi leo risus</a>
-                    <a href="#" class="task-list-item">Porta ac consectetur ac</a>
-                    <a href="#" class="task-list-item">Vestibulum at eros</a>
-                </div>
-            </div>
-        </div>
+        <ng-view></ng-view>
     </div>
 </div>
 </body>

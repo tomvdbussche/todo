@@ -8,6 +8,16 @@ let schema = new Schema({
     tasks: [{type: ObjectId, ref: 'Task'}]
 });
 
+// schema
+//     .virtual('completed')
+//     .get(function () {
+//         return this.tasks.filter(function (task) {
+//             return task.completed;
+//         }).length;
+//     });
+//
+// schema.set('toJSON', {virtuals: true});
+
 let List = mongoose.model('List', schema);
 
 export default List;
