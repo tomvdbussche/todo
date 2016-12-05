@@ -42,7 +42,8 @@ gulp.task('scripts', function () {
 gulp.task('styles', function () {
     return gulp.src(src.styles)
         .pipe(plugins.sass({
-            includePaths: require('node-bourbon').with(dir.bootstrap)
+            includePaths: require('node-bourbon').with(dir.bootstrap),
+            importer: require('node-sass-import-once')
         }).on('error', plugins.notify.onError(function (error) {
             return "Error: " + error.message;
         })))
