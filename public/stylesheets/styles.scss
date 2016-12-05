@@ -1,4 +1,11 @@
 //-----------
+// Variables
+//-----------
+
+@import 'variables';
+@import 'mixins';
+
+//-----------
 // Bootstrap
 //-----------
 
@@ -63,8 +70,8 @@
 @import 'bourbon';
 
 //--------
-// Custom
+// Components
 //--------
 
-@import 'mixins';
 @import 'tasklist';
+
