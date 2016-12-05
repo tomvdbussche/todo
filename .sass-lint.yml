@@ -1,0 +1,5 @@
+# Linter Options
+options:
+# Rule Configuration
+rules:
+  placeholder-in-extend: 0 # Bootstrap does not have placeholders

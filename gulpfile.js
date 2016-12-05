@@ -1,12 +1,12 @@
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     plugins = require('gulp-load-plugins')();
 
-var src = {
+let src = {
     scripts: ['public/app/**/*.js'],
     styles: ['public/stylesheets/*.scss']
 };
 
-var dir = {
+let dir = {
     scripts: './public/javascripts',
     stylesheets: './public/stylesheets'
 };
@@ -32,6 +32,8 @@ gulp.task('scripts', function () {
 // Styles
 gulp.task('styles', function () {
     return gulp.src(src.styles)
+        .pipe(plugins.sassLint())
+        .pipe(plugins.sassLint.format())
         .pipe(plugins.sass({
             includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
         }).on('error', plugins.notify.onError(function (error) {
