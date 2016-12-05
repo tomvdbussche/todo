@@ -7,9 +7,15 @@ let router = express.Router();
 // Lists
 router.route('/lists')
     .get(function (req, res, next) {
-        List
-            .find()
-            .populate('tasks')
+        console.log('Retrieving all lists');
+        List.find()
+            .populate({
+                path: 'tasks',
+                populate: {
+                    path: 'list',
+                    model: 'List'
+                }
+            })
             .exec(function (err, lists) {
                 if (err) {
                     return next(err);
@@ -45,33 +51,39 @@ router.param('list', function (req, res, next, id) {
         });
 });
 
-router.get('/list/:list', function (req, res, next) {
+router.get('/list/:list', function (req, res) {
     res.json(req.list);
 });
 
 router.post('/list/:list/tasks', function (req, res, next) {
     let task = new Task(req.body);
-
     task.list = req.list;
 
     task.save(function (err, task) {
         if (err) {
             return next(err);
         }
-        req.list.tasks.push(task);
-        req.list.save(function (err, list) {
+
+        req.list.tasks.push(task._id);
+        req.list.save(function (err) {
             if (err) {
                 return next(err);
-            } else {
-                res.json(task);
             }
+
+            res.json(task);
         });
     });
 });
 
 router.param('task', function (req, res, next, id) {
     Task.findById(id)
-        .populate('list')
+        .populate({
+            path: 'list',
+            populate: {
+                path: 'tasks',
+                model: 'Task'
+            }
+        })
         .exec(function (err, task) {
             if (err) {
                 return next(err);
@@ -87,7 +99,7 @@ router.param('task', function (req, res, next, id) {
 router.delete('/list/:list/tasks/:task', function (req, res) {
     Task.remove({
         _id: req.task._id
-    }, function (err, task) {
+    }, function (err) {
         if (err) {
             res.send(err);
         } else {
@@ -118,26 +130,17 @@ router.route('/tasks')
     });
 
 router.route('/task/:task')
-    .get(function (req, res, next) {
+    .get(function (req, res) {
         res.json(req.task);
     })
     .delete(function (req, res) {
-        req.task.remove(function (err, task) {
+        req.task.remove(function (err) {
             if (err) {
                 res.send(err);
             } else {
                 res.json({message: 'Task deleted'});
             }
         });
-        // Task.remove({
-        //     _id: req.task._id
-        // }, function (err, task) {
-        //     if (err) {
-        //         res.send(err);
-        //     } else {
-        //         res.json({message: 'Task deleted'});
-        //     }
-        // });
     });
 
 export default router;
