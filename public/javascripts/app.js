@@ -60,16 +60,32 @@ angular.module('app.core').directive('taskList', ['ListService', function (ListS
         },
         templateUrl: 'app/shared/list/listView.html',
         controller: function controller($scope) {
-            $scope.list.tasks.completed = $scope.list.tasks.filter(function (task) {
-                return task.completed;
-            }).length;
+            var updateCount = function updateCount() {
+                $scope.list.tasks.completed = $scope.list.tasks.filter(function (task) {
+                    return task.completed;
+                }).length;
+            };
             $scope.toggle = function (task) {
-                ListService.toggle(task);
+                console.log('Toggling task ' + task.name);
+                ListService.toggle(task).then(function () {
+                    updateCount();
+                });
             };
             $scope.delete = function (task) {
-                console.log("Removed");
+                console.log('Removing task ' + task.name);
                 ListService.delete(task);
             };
+            $scope.addTask = function () {
+                if (!$scope.name || $scope.name === '') {
+                    return;
+                } else {
+                    console.log('Adding new task ' + $scope.name);
+                    ListService.addTask($scope.list, {
+                        name: $scope.name
+                    });
+                }
+            };
+            updateCount();
         }
     };
 }]);
@@ -80,19 +96,29 @@ angular.module('app.services').factory('ListService', ['$http', function ($http)
 
     service.getAll = function () {
         return $http.get('/api/lists').then(function (response) {
+            // Copy list data to internal list & return it
             angular.copy(response.data, service.lists);
             return service.lists;
         });
     };
 
+    service.addTask = function (list, task) {
+        return $http.post('/api/list/' + list._id + '/tasks', task).then(function (response) {
+            // Push new task onto list
+            list.tasks.push(response.data);
+        });
+    };
+
     service.toggle = function (task) {
-        return $http.put('/api/list/' + task.list + '/task/' + task._id + '/toggle').then(function () {
+        return $http.put('/api/list/' + task.list._id + '/task/' + task._id + '/toggle').then(function () {
+            // Toggle completion state of task
             task.completed ^= true;
         });
     };
 
     service.delete = function (task) {
-        return $http.delete('/api/task/' + task._id).then(function (response) {
+        return $http.delete('/api/task/' + task._id).then(function () {
+            // Remove deleted task from list
             task.list.tasks.splice(task.list.tasks.indexOf(task), 1);
         });
     };

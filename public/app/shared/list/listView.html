@@ -1,39 +1,54 @@
-<div class="task-list-panel">
+<div class="task-list">
     <!-- Header -->
     <div class="task-list-heading">
-        <div class="task-list-title">
-            <h3 class="panel-title" ng-bind="list.title"></h3>
+        <div class="task-list-heading-title-wrapper">
+            <h3 ng-hide="editList" class="task-list-heading-title" ng-bind="list.title"></h3>
+            <form class="list-title-form" ng-show="editList" ng-submit="editList = false">
+                <input class="list-title-input" ng-model="list.title">
+            </form>
         </div>
-        <div class="task-list-buttons">
-            <a class="task-edit-button" href="#" role="button" aria-label="Edit">
-                <span class="task-edit-icon" aria-hidden="true"></span>
+        <div class="task-list-heading-buttons" ng-hide="editList">
+            <a class="task-list-button-edit" href="#" ng-click="editList = true" aria-label="Edit list">
+                <span class="task-list-icon-edit" aria-hidden="true"></span>
             </a>
         </div>
     </div>
-    <div class="panel-body">
-        <!-- Description -->
-        <div class="task-list-description">
-            {{ list.tasks.completed }} / {{ list.tasks.length }} completed
-        </div>
+    <!-- Details -->
+    <div class="task-list-details">
         <!-- Progress -->
-        <div class="task-list-progress">
-            <uib-progressbar value="list.tasks.completed" max="list.tasks.length">
-                {{list.tasks.completed}} / {{list.tasks.length}}
-            </uib-progressbar>
-        </div>
+        <uib-progressbar class="task-list-progress" value="list.tasks.completed" max="list.tasks.length">
+            {{list.tasks.completed}} / {{list.tasks.length}}
+        </uib-progressbar>
     </div>
     <!-- Task items -->
-    <div class="task-list">
-        <a href="#" class="task-list-item" ng-repeat="task in list.tasks">
-            <div class="task-completion">
-                <label>
-                    <input type="checkbox" id="blankCheckbox" value="option1" aria-label="..."
-                           ng-checked="task.completed" ng-click="toggle(task)">
-                </label>
-            </div>
-            <div class="task-name">
-                <span>{{ task.name }}</span>
-            </div>
-        </a>
-    </div>
+    <table class="task-list-items">
+        <tbody>
+        <tr>
+            <td class="column-check">
+                <a class="task-button-new" href="#" ng-click="addTask()" aria-label="New task">
+                    <span class="task-icon-new" aria-hidden="true"></span>
+                </a>
+            </td>
+            <td class="column-name">
+                <form class="task-form" ng-submit="addTask()">
+                    <input class="task-input" ng-model="name" placeholder="New task...">
+                </form>
+            </td>
+        </tr>
+        <tr ng-repeat="task in list.tasks" ng-click="toggle(task)">
+            <td class="column-check">
+                <div class="task-completion">
+                    <label>
+                        <input type="checkbox" ng-checked="task.completed" aria-label="Completion"/>
+                    </label>
+                </div>
+            </td>
+            <td class="column-name">
+                <div ng-class="{'task-completed': task.completed}">
+                    <span class="task-name">{{ task.name }}</span>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>

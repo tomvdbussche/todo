@@ -1,59 +1,91 @@
-@import "bootstrap/mixins";
-@import "bootstrap/glyphicons";
-@import "bootstrap/buttons";
-@import "bootstrap/panels";
+@import 'mixins';
+@import 'variables';
+@import 'bourbon';
 
-.task-list-panel {
-  @extend .panel;
-  @extend .panel-default;
+.task-list {
+  @include panel;
 
-  .task-list-heading {
-    @extend .panel-heading;
-    @include clearfix;
-    display: flex;
-    align-items: center;
+  @include glyphicon('edit');
+  @include glyphicon('save', 'ok');
+  @include glyphicon('new', 'plus');
+
+  @include button-small('edit');
+  @include button-small('save');
+  @include button-small('new', 'link');
+
+  &-button-new {
+    color: $text-color;
+    line-height: 1;
+    padding: 5px;
+  }
+
+  &-heading {
+    @include panel-heading;
+    @include display(flex);
+    @include align-items(center);
+
     padding: 5px;
 
-    .task-list-title {
+    &-title-wrapper {
+      height: auto;
       padding-left: 10px;
     }
 
-    .task-list-buttons {
+    &-buttons {
       margin-left: auto;
+    }
 
-      .task-edit-button {
-        @extend .btn;
-        @extend .btn-default;
-        @extend .btn-sm;
+  }
 
-        .task-edit-icon {
-          @extend .glyphicon;
-          @extend .glyphicon-edit;
-        }
+  &-details {
+    @include panel-body;
+  }
+
+  &-progress {
+    margin: 0;
+  }
+
+  &-items {
+    @include table(hover);
+  }
+
+  .task-list-items {
+    @extend .table;
+    @extend .table-hover;
+
+    .column-check,
+    .column-name {
+      vertical-align: middle;
+    }
+
+    .column-check {
+      padding-right: 0;
+
+      .task-button-new {
+        float: right;
       }
     }
-  }
 
-  .task-list-progress {
-    @extend .progress;
-    margin-top: 20px;
-    margin-bottom: 0;
-  }
+    .column-name {
+      width: 100%;
+    }
 
-  .task-list {
-    @extend .list-group;
+    .task-completed {
+      color: $gray-light;
+      text-decoration: line-through;
+    }
 
-    .task-list-item {
-      @extend .list-group-item;
-      display: flex;
-      align-items: center;
+    tr {
+
+      .task-form {
+        .task-input {
+          @include transparent;
+        }
+      }
 
       .task-completion {
         @extend .checkbox;
-        margin: 0;
-      }
-      .task-name {
-        margin-left: 10px;
+        margin: 0 0 0 4px;
       }
     }
   }

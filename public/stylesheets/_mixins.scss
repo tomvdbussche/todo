@@ -1,0 +1,62 @@
+/// Create glyphicon
+/// @param $name - icon name
+/// @param $icon - glyphicon if not equal to name
+@mixin glyphicon($name, $icon: null) {
+  // Create class using parent name
+  &-icon-#{$name} {
+    @extend .glyphicon;
+    @extend .glyphicon-#{if($icon != null, $icon, $name)};
+  }
+}
+
+/// Create button
+/// @param $name - button name
+/// @param $style - button style
+@mixin button($name, $style: 'default', $small: false) {
+  &-button-#{$name} {
+    @extend .btn;
+    @extend .btn-#{$style};
+
+    @if $small {
+      @extend .btn-sm;
+    }
+  }
+}
+
+@mixin button-small($name, $style: 'default') {
+  @include button($name, $style, $small: true);
+}
+
+@mixin panel($style: 'default') {
+  @extend .panel;
+  @extend .panel-#{$style};
+}
+
+@mixin panel-heading {
+  @extend .panel-heading;
+
+  &-title {
+    @extend .panel-title;
+  }
+}
+
+@mixin panel-body {
+  @extend .panel-body;
+}
+
+@mixin table($styles...) {
+  @extend .table;
+
+  @each $style in $styles {
+    @extend .table-#{$style};
+  }
+}
+
+@mixin transparent {
+  background-color: transparent;
+  border: 0;
+}
+
+@function prefix($prefix, $value) {
+  @return #{$prefix}-#{$value};
+}
