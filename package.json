@@ -34,6 +34,7 @@
     "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
+    "node-bourbon": "^4.2.8",
     "node-sass": "^3.13.0"
   }
 }

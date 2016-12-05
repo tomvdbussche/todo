@@ -7,15 +7,24 @@ let src = {
 };
 
 let dir = {
+    bootstrap: './node_modules/bootstrap-sass/assets/stylesheets',
     scripts: './public/javascripts',
     stylesheets: './public/stylesheets'
 };
 
-// Lint
-gulp.task('lint', function () {
+// JS Lint
+gulp.task('js-lint', function () {
     return gulp.src(src.scripts)
         .pipe(plugins.jshint())
         .pipe(plugins.jshint.reporter('jshint-stylish'));
+});
+
+// SASS Lint
+
+gulp.task('sass-lint', function () {
+    return gulp.src(src.styles)
+        .pipe(plugins.sassLint())
+        .pipe(plugins.sassLint.format());
 });
 
 // Scripts
@@ -32,10 +41,8 @@ gulp.task('scripts', function () {
 // Styles
 gulp.task('styles', function () {
     return gulp.src(src.styles)
-        .pipe(plugins.sassLint())
-        .pipe(plugins.sassLint.format())
         .pipe(plugins.sass({
-            includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
+            includePaths: require('node-bourbon').with(dir.bootstrap)
         }).on('error', plugins.notify.onError(function (error) {
             return "Error: " + error.message;
         })))
@@ -47,9 +54,9 @@ gulp.task('styles', function () {
 
 // Watch
 gulp.task('watch', function () {
-    gulp.watch(src.scripts, ['lint', 'scripts']);
-    gulp.watch(src.styles, ['styles']);
+    gulp.watch(src.scripts, ['js-lint', 'scripts']);
+    gulp.watch(src.styles, ['sass-lint', 'styles']);
 });
 
 // Default
-gulp.task('default', ['lint', 'scripts', 'styles', 'watch']);
+gulp.task('default', ['js-lint', 'scripts', 'sass-lint', 'styles', 'watch']);
