@@ -12,7 +12,7 @@
 /// Create button
 /// @param $name - button name
 /// @param $style - button style
-@mixin button($name, $style: 'default', $small: false) {
+@mixin tb-button($name, $style: 'default', $small: false) {
   &-button-#{$name} {
     @extend .btn;
     @extend .btn-#{$style};
@@ -23,16 +23,17 @@
   }
 }
 
-@mixin button-small($name, $style: 'default') {
-  @include button($name, $style, $small: true);
+
+@mixin tb-button-small($name, $style: 'default') {
+  @include tb-button($name, $style, true);
 }
 
-@mixin panel($style: 'default') {
+@mixin tb-panel($style: 'default') {
   @extend .panel;
   @extend .panel-#{$style};
 }
 
-@mixin panel-heading {
+@mixin tb-panel-heading {
   @extend .panel-heading;
 
   &-title {
@@ -40,11 +41,11 @@
   }
 }
 
-@mixin panel-body {
+@mixin tb-panel-body {
   @extend .panel-body;
 }
 
-@mixin table($styles...) {
+@mixin tb-table($styles...) {
   @extend .table;
 
   @each $style in $styles {
@@ -55,8 +56,4 @@
 @mixin transparent {
   background-color: transparent;
   border: 0;
-}
-
-@function prefix($prefix, $value) {
-  @return #{$prefix}-#{$value};
 }

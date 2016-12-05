@@ -3,15 +3,15 @@
 @import 'bourbon';
 
 .task-list {
-  @include panel;
+  @include tb-panel;
 
   @include glyphicon('edit');
   @include glyphicon('save', 'ok');
   @include glyphicon('new', 'plus');
 
-  @include button-small('edit');
-  @include button-small('save');
-  @include button-small('new', 'link');
+  @include tb-button-small('edit');
+  @include tb-button-small('save');
+  @include tb-button-small('new', 'link');
 
   &-button-new {
     color: $text-color;
@@ -20,7 +20,7 @@
   }
 
   &-heading {
-    @include panel-heading;
+    @include tb-panel-heading;
     @include display(flex);
     @include align-items(center);
 
@@ -38,7 +38,7 @@
   }
 
   &-details {
-    @include panel-body;
+    @include tb-panel-body;
   }
 
   &-progress {
@@ -46,7 +46,7 @@
   }
 
   &-items {
-    @include table(hover);
+    @include tb-table(hover);
   }
 
   .task-list-items {
