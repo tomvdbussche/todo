@@ -5,7 +5,7 @@ angular
             scope: {
                 list: '='
             },
-            templateUrl: 'app/shared/list/listView.html',
+            templateUrl: 'app/components/tasklist/taskListView.html',
             controller: function ($scope) {
                 let updateCount = function () {
                     $scope.list.tasks.completed = $scope.list.tasks.filter(function (task) {
