@@ -2,15 +2,28 @@ let gulp = require('gulp'),
     plugins = require('gulp-load-plugins')();
 
 let src = {
-    scripts: ['public/app/**/*.js'],
-    styles: ['public/stylesheets/**/*.scss']
+    scripts: ['app/**/*.js'],
+    styles: ['app/assets/css/**/*.scss'],
+    templates: ['app/**/*.html']
 };
 
 let dir = {
+    app: './app',
     bootstrap: './node_modules/bootstrap-sass/assets/stylesheets',
     scripts: './public/javascripts',
     stylesheets: './public/stylesheets'
 };
+
+// Template cache
+gulp.task('template-cache', function () {
+    return gulp.src(src.templates)
+        .pipe(plugins.angularTemplatecache(
+            'app.templates.js', {
+                module: 'app.templates',
+                standalone: true
+            }))
+        .pipe(gulp.dest(dir.app));
+});
 
 // JS Lint
 gulp.task('js-lint', function () {
@@ -55,9 +68,25 @@ gulp.task('styles', function () {
 
 // Watch
 gulp.task('watch', function () {
-    gulp.watch(src.scripts, ['js-lint', 'scripts']);
-    gulp.watch(src.styles, ['sass-lint', 'styles']);
+    gulp.watch(src.scripts, [
+        'js-lint',
+        'scripts'
+    ]);
+    gulp.watch(src.styles, [
+        'sass-lint',
+        'styles'
+    ]);
+    gulp.watch(src.templates, [
+        'template-cache'
+    ]);
 });
 
 // Default
-gulp.task('default', ['js-lint', 'scripts', 'sass-lint', 'styles', 'watch']);
+gulp.task('default', [
+    'template-cache',
+    'js-lint',
+    'scripts',
+    'sass-lint',
+    'styles',
+    'watch'
+]);

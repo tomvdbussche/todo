@@ -6142,17 +6142,16 @@ button.close {
   -ms-flex-align: center;
   padding: 5px; }
 
-.task-list-items .column-check,
-.task-list-items .column-name {
-  vertical-align: middle; }
-
-.task-list-items .column-check {
-  padding-right: 0; }
-  .task-list-items .column-check .task-button-new {
-    float: right; }
-
-.task-list-items .column-name {
+.task-list-items tr > td {
+  vertical-align: middle;
   width: 100%; }
+  .task-list-items tr > td:first-child, .task-list-items tr > td:last-child {
+    width: auto; }
+  .task-list-items tr > td:first-child {
+    padding-right: 0; }
+
+.task-list-items .column-action {
+  cursor: pointer; }
 
 .task-list-items .task-completed {
   color: #777777;

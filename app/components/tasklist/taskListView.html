@@ -1,0 +1,36 @@
+<table class="task-list-items">
+    <tbody>
+    <tr>
+        <td class="column-action" ng-click="addTask()">
+            <a class="list-button-new" href="#" aria-label="New task">
+                <span class="list-icon-new" aria-hidden="true"></span>
+            </a>
+        </td>
+        <td colspan="2">
+            <form class="task-form" ng-submit="addTask()">
+                <input class="task-input" ng-model="name" placeholder="New task...">
+            </form>
+        </td>
+    </tr>
+    <tr ng-repeat="task in list.tasks">
+        <td class="column-action" ng-click="toggle(task)">
+            <div class="task-completion">
+                <label>
+                    <input type="checkbox" ng-checked="task.completed" aria-label="Completion"/>
+                </label>
+            </div>
+        </td>
+        <td>
+            <div ng-class="{'task-completed': task.completed}">
+                <span class="task-name">{{ task.name }}</span>
+            </div>
+        </td>
+
+        <td class="column-action" ng-click="removeTask(task)">
+            <a class="list-button-delete" href="#" aria-label="Remove task">
+                <span class="list-icon-delete" aria-hidden="true"></span>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>

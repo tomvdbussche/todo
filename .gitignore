@@ -113,3 +113,6 @@ bower_components
 
 ### Environment variables ###
 .env
+
+### Angular templates ###
+/app/app.templates.js

@@ -6,7 +6,7 @@ angular
             scope: {
                 list: '='
             },
-            templateUrl: 'app/components/tasklist/taskListView.html',
+            templateUrl: 'components/tasklist/taskListView.html',
             controller: 'TaskListController'
         };
     });

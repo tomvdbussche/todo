@@ -6,6 +6,6 @@ angular
             scope: {
                 list: '='
             },
-            templateUrl: 'app/components/listpanel/listPanelView.html'
+            templateUrl: 'components/listpanel/listPanelView.html'
         };
     });

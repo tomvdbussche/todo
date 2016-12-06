@@ -4,5 +4,6 @@ angular.module('todoApplication', [
     'app.routes',
     'app.core',
     'app.services',
-    'app.config'
+    'app.config',
+    'app.templates'
 ]);

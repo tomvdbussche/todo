@@ -3,7 +3,7 @@ angular
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'app/sections/dashboard/dashboardView.html',
+                templateUrl: 'sections/dashboard/dashboardView.html',
                 controller: 'DashboardController as dashboard',
                 // resolve: {
                 //     lists: function () {
