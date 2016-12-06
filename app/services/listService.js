@@ -31,12 +31,12 @@ angular.module('app.services').factory('ListService', ['$http', function ($http)
             });
     };
 
-    service.delete = function(task) {
+    service.delete = function(list, task) {
         return $http
-            .delete('/api/task/' + task._id)
+            .delete('/api/list/' + list._id + '/task/' + task._id)
             .then(function () {
                 // Remove deleted task from list
-                task.list.tasks.splice(task.list.tasks.indexOf(task), 1);
+                list.tasks.splice(list.tasks.indexOf(task), 1);
             });
     };
 

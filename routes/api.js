@@ -96,7 +96,7 @@ router.param('task', function (req, res, next, id) {
         });
 });
 
-router.delete('/list/:list/tasks/:task', function (req, res) {
+router.delete('/list/:list/task/:task', function (req, res) {
     Task.remove({
         _id: req.task._id
     }, function (err) {

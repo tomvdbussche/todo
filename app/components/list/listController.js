@@ -15,7 +15,10 @@ angular
         };
         $scope.delete = function (task) {
             console.log('Removing task ' + task.name);
-            ListService.delete(task);
+            ListService.delete($scope.list, task)
+                .then(function () {
+                    updateCount();
+                });
         };
         $scope.addTask = function () {
             if (!$scope.name || $scope.name === '') {
@@ -25,6 +28,7 @@ angular
                 ListService.addTask($scope.list, {
                     name: $scope.name
                 });
+                $scope.name = '';
             }
         };
         updateCount();
