@@ -1,12 +1,11 @@
 angular
     .module('app.core')
-    .directive('taskList', function () {
+    .directive('listPanel', function () {
         return {
             restrict: 'E',
             scope: {
                 list: '='
             },
-            templateUrl: 'app/components/tasklist/taskListView.html',
-            controller: 'TaskListController'
+            templateUrl: 'app/components/listpanel/listPanelView.html'
         };
     });

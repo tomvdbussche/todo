@@ -1,32 +1,10 @@
 <div class="task-list">
-    <!-- Header -->
-    <div class="task-list-heading">
-        <div class="task-list-heading-title-wrapper">
-            <h3 ng-hide="editList" class="task-list-heading-title" ng-bind="list.title"></h3>
-            <form class="list-title-form" ng-show="editList" ng-submit="editList = false">
-                <input class="list-title-input" ng-model="list.title">
-            </form>
-        </div>
-        <div class="task-list-heading-buttons" ng-hide="editList">
-            <a class="task-list-button-edit" href="#" ng-click="editList = true" aria-label="Edit list">
-                <span class="task-list-icon-edit" aria-hidden="true"></span>
-            </a>
-        </div>
-    </div>
-    <!-- Details -->
-    <div class="task-list-details">
-        <!-- Progress -->
-        <uib-progressbar class="task-list-progress" value="list.tasks.completed" max="list.tasks.length">
-            {{list.tasks.completed}} / {{list.tasks.length}}
-        </uib-progressbar>
-    </div>
-    <!-- Task items -->
     <table class="task-list-items">
         <tbody>
         <tr>
             <td class="column-check">
-                <a class="task-button-new" href="#" ng-click="addTask()" aria-label="New task">
-                    <span class="task-icon-new" aria-hidden="true"></span>
+                <a class="list-button-new" href="#" ng-click="addTask()" aria-label="New task">
+                    <span class="list-icon-new" aria-hidden="true"></span>
                 </a>
             </td>
             <td class="column-name">
@@ -47,6 +25,12 @@
                 <div ng-class="{'task-completed': task.completed}">
                     <span class="task-name">{{ task.name }}</span>
                 </div>
+            </td>
+
+            <td class="column-action">
+                <a class="list-button-delete" href="#" ng-click="removeTask(task)" aria-label="Remove task">
+                    <span class="list-icon-delete" aria-hidden="true"></span>
+                </a>
             </td>
         </tr>
         </tbody>

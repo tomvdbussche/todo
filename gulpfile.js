@@ -3,7 +3,7 @@ let gulp = require('gulp'),
 
 let src = {
     scripts: ['public/app/**/*.js'],
-    styles: ['public/stylesheets/*.scss']
+    styles: ['public/stylesheets/**/*.scss']
 };
 
 let dir = {

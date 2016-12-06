@@ -1,0 +1,54 @@
+@import '../base';
+
+.list {
+  @include glyphicon('edit');
+  @include glyphicon('save', 'ok');
+  @include glyphicon('new', 'plus');
+  @include glyphicon('delete', 'trash');
+
+  @include tb-button-small('edit');
+  @include tb-button-small('save');
+  @include tb-button-small('new', 'link');
+  @include tb-button-small('delete', 'link');
+
+  &-button-new,
+  &-button-delete {
+    color: $text-color;
+    line-height: 1;
+    padding: 5px;
+  }
+
+  &-button-delete {
+    @include opacity(.2);
+
+    &:hover {
+      @include opacity(1);
+      color: $brand-danger;
+    }
+  }
+
+  &-title {
+    height: auto;
+    padding-left: 10px;
+  }
+
+  &-buttons {
+    margin-left: auto;
+  }
+
+  &-progress {
+    margin: 0;
+  }
+}
+
+.list-panel {
+  @extend .panel;
+  @extend .panel-default;
+
+  .panel-heading {
+    @include display(flex);
+    @include align-items(center);
+
+    padding: 5px;
+  }
+}
