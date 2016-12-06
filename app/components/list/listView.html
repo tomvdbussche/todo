@@ -1,0 +1,60 @@
+<div class="list-panel">
+    <!-- Header -->
+    <div class="panel-heading">
+        <div class="list-title">
+            <h3 ng-hide="editList" class="panel-title" ng-bind="list.title"></h3>
+            <form class="list-title-form" ng-show="editList" ng-submit="editList = false">
+                <input class="list-title-input" ng-model="list.title">
+            </form>
+        </div>
+        <div class="list-buttons" ng-hide="editList">
+            <a class="list-button-edit" href="#" ng-click="editList = true" aria-label="Edit list">
+                <span class="list-icon-edit" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <!-- Details -->
+    <div class="panel-body">
+        <!-- Progress -->
+        <uib-progressbar class="list-progress" value="list.tasks.completed" max="list.tasks.length">
+            {{list.tasks.completed}} / {{list.tasks.length}}
+        </uib-progressbar>
+    </div>
+    <!-- Task items -->
+    <table class="list-items">
+        <tbody>
+        <tr>
+            <td class="task-new" ng-click="addTask()">
+                <a class="task-button-new" href="#" aria-label="New task">
+                    <span class="task-icon-new" aria-hidden="true"></span>
+                </a>
+            </td>
+            <td colspan="2">
+                <form class="task-form" ng-submit="addTask()">
+                    <input class="task-input" ng-model="name" placeholder="New task...">
+                </form>
+            </td>
+        </tr>
+        <tr ng-repeat="task in list.tasks">
+            <td class="task-toggle" ng-click="toggle(task)">
+                <div class="task-completion">
+                    <label>
+                        <input type="checkbox" ng-checked="task.completed" aria-label="Completion"/>
+                    </label>
+                </div>
+            </td>
+            <td>
+                <div ng-class="{'task-completed': task.completed}">
+                    <span class="task-name">{{ task.name }}</span>
+                </div>
+            </td>
+
+            <td class="task-delete" ng-click="removeTask(task)">
+                <a class="task-button-delete" href="#" aria-label="Remove task">
+                    <span class="task-icon-delete" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

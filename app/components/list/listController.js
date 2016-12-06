@@ -1,6 +1,6 @@
 angular
     .module('app.core')
-    .controller('TaskListController', ['$scope', 'ListService', function ($scope, ListService) {
+    .controller('ListController', ['$scope', 'ListService', function ($scope, ListService) {
         let updateCount = function () {
             $scope.list.tasks.completed = $scope.list.tasks.filter(function (task) {
                 return task.completed;

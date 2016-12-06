@@ -1,11 +1,12 @@
 angular
     .module('app.core')
-    .directive('listPanel', function () {
+    .directive('list', function () {
         return {
             restrict: 'E',
             scope: {
                 list: '='
             },
-            templateUrl: 'components/listpanel/listPanelView.html'
+            templateUrl: 'components/list/listView.html',
+            controller: 'ListController'
         };
     });

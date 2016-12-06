@@ -1,0 +1,143 @@
+@import '../base';
+
+.list {
+  @include glyphicon('edit');
+  @include glyphicon('save', 'ok');
+
+  @include tb-button-small('edit');
+  @include tb-button-small('save');
+
+  &-button-new,
+  &-button-delete {
+    color: $text-color;
+    line-height: 1;
+    padding: 5px;
+  }
+
+  &-button-delete {
+    @include opacity(.2);
+
+    &:hover {
+      @include opacity(1);
+      color: $brand-danger;
+    }
+  }
+
+  &-title {
+    height: auto;
+    padding-left: 10px;
+  }
+
+  &-buttons {
+    margin-left: auto;
+  }
+
+  &-progress {
+    margin: 0;
+  }
+}
+
+.list-panel {
+  @extend .panel;
+  @extend .panel-default;
+
+  .panel-heading {
+    @include display(flex);
+    @include align-items(center);
+
+    padding: 5px;
+  }
+}
+
+.list-items {
+  @include tb-table(hover);
+
+  tr > td {
+    vertical-align: middle;
+    width: 100%;
+
+    &:first-child,
+    &:last-child {
+      width: auto;
+    }
+
+    &:first-child {
+      padding-right: 0;
+    }
+  }
+
+  .task-completed {
+    color: $gray-light;
+    text-decoration: line-through;
+  }
+
+  tr {
+
+    .task-form {
+      .task-input {
+        @include transparent;
+      }
+    }
+
+    .task-completion {
+      @extend .checkbox;
+      margin: 0 0 0 4px;
+    }
+  }
+}
+
+%item-button {
+  @include opacity(.2);
+  color: $text-color;
+  line-height: 1;
+  padding: 5px;
+
+}
+
+@mixin item-button($name) {
+  @include tb-button-small($name, 'link');
+
+  &-button-#{$name} {
+    color: inherit;
+    line-height: 1;
+    padding: 5px;
+
+    &:focus,
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.task {
+  @include glyphicon('new', 'plus');
+  @include glyphicon('delete', 'trash');
+
+  @include item-button('new');
+  @include item-button('delete');
+
+  &-delete,
+  &-new,
+  &-toggle {
+    &,
+    & * {
+      cursor: pointer;
+    }
+  }
+
+  &-delete,
+  &-new {
+
+    @include opacity(.3);
+
+    &:hover {
+      @include opacity(1);
+    }
+  }
+
+  &-delete {
+    &:hover {
+      color: $brand-danger;
+    }
+  }
+}

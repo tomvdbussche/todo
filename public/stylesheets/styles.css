@@ -217,19 +217,19 @@ th {
     page-break-after: avoid; }
   .navbar {
     display: none; }
-  .btn > .caret, .list-button-edit > .caret, .list-button-save > .caret, .list-button-new > .caret, .list-button-delete > .caret,
+  .btn > .caret, .list-button-edit > .caret, .list-button-save > .caret, .task-button-new > .caret, .task-button-delete > .caret,
   .dropup > .btn > .caret,
   .dropup > .list-button-edit > .caret,
   .dropup > .list-button-save > .caret,
-  .dropup > .list-button-new > .caret,
-  .dropup > .list-button-delete > .caret {
+  .dropup > .task-button-new > .caret,
+  .dropup > .task-button-delete > .caret {
     border-top-color: #000 !important; }
   .label {
     border: 1px solid #000; }
-  .table, .task-list-items {
+  .table, .list-items {
     border-collapse: collapse !important; }
-    .table td, .task-list-items td,
-    .table th, .task-list-items th {
+    .table td, .list-items td,
+    .table th, .list-items th {
       background-color: #fff !important; }
   .table-bordered th,
   .table-bordered td {
@@ -240,7 +240,7 @@ th {
   src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
   src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 
-.glyphicon, .list-icon-edit, .list-icon-save, .list-icon-new, .list-icon-delete {
+.glyphicon, .list-icon-edit, .list-icon-save, .task-icon-new, .task-icon-delete {
   position: relative;
   top: 1px;
   display: inline-block;
@@ -254,7 +254,7 @@ th {
 .glyphicon-asterisk:before {
   content: "\002a"; }
 
-.glyphicon-plus:before, .list-icon-new:before {
+.glyphicon-plus:before, .task-icon-new:before {
   content: "\002b"; }
 
 .glyphicon-euro:before,
@@ -327,7 +327,7 @@ th {
 .glyphicon-cog:before {
   content: "\e019"; }
 
-.glyphicon-trash:before, .list-icon-delete:before {
+.glyphicon-trash:before, .task-icon-delete:before {
   content: "\e020"; }
 
 .glyphicon-home:before {
@@ -2029,33 +2029,33 @@ caption {
 th {
   text-align: left; }
 
-.table, .task-list-items {
+.table, .list-items {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px; }
-  .table > thead > tr > th, .task-list-items > thead > tr > th,
-  .table > thead > tr > td, .task-list-items > thead > tr > td,
-  .table > tbody > tr > th, .task-list-items > tbody > tr > th,
-  .table > tbody > tr > td, .task-list-items > tbody > tr > td,
-  .table > tfoot > tr > th, .task-list-items > tfoot > tr > th,
-  .table > tfoot > tr > td, .task-list-items > tfoot > tr > td {
+  .table > thead > tr > th, .list-items > thead > tr > th,
+  .table > thead > tr > td, .list-items > thead > tr > td,
+  .table > tbody > tr > th, .list-items > tbody > tr > th,
+  .table > tbody > tr > td, .list-items > tbody > tr > td,
+  .table > tfoot > tr > th, .list-items > tfoot > tr > th,
+  .table > tfoot > tr > td, .list-items > tfoot > tr > td {
     padding: 8px;
     line-height: 1.42857;
     vertical-align: top;
     border-top: 1px solid #ddd; }
-  .table > thead > tr > th, .task-list-items > thead > tr > th {
+  .table > thead > tr > th, .list-items > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 2px solid #ddd; }
-  .table > caption + thead > tr:first-child > th, .task-list-items > caption + thead > tr:first-child > th,
-  .table > caption + thead > tr:first-child > td, .task-list-items > caption + thead > tr:first-child > td,
-  .table > colgroup + thead > tr:first-child > th, .task-list-items > colgroup + thead > tr:first-child > th,
-  .table > colgroup + thead > tr:first-child > td, .task-list-items > colgroup + thead > tr:first-child > td,
-  .table > thead:first-child > tr:first-child > th, .task-list-items > thead:first-child > tr:first-child > th,
-  .table > thead:first-child > tr:first-child > td, .task-list-items > thead:first-child > tr:first-child > td {
+  .table > caption + thead > tr:first-child > th, .list-items > caption + thead > tr:first-child > th,
+  .table > caption + thead > tr:first-child > td, .list-items > caption + thead > tr:first-child > td,
+  .table > colgroup + thead > tr:first-child > th, .list-items > colgroup + thead > tr:first-child > th,
+  .table > colgroup + thead > tr:first-child > td, .list-items > colgroup + thead > tr:first-child > td,
+  .table > thead:first-child > tr:first-child > th, .list-items > thead:first-child > tr:first-child > th,
+  .table > thead:first-child > tr:first-child > td, .list-items > thead:first-child > tr:first-child > td {
     border-top: 0; }
-  .table > tbody + tbody, .task-list-items > tbody + tbody {
+  .table > tbody + tbody, .list-items > tbody + tbody {
     border-top: 2px solid #ddd; }
-  .table .table, .task-list-items .table, .table .task-list-items, .task-list-items .task-list-items {
+  .table .table, .list-items .table, .table .list-items, .list-items .list-items {
     background-color: #fff; }
 
 .table-condensed > thead > tr > th,
@@ -2082,7 +2082,7 @@ th {
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #f9f9f9; }
 
-.table-hover > tbody > tr:hover, .task-list-items > tbody > tr:hover {
+.table-hover > tbody > tr:hover, .list-items > tbody > tr:hover {
   background-color: #f5f5f5; }
 
 table col[class*="col-"] {
@@ -2096,109 +2096,109 @@ table th[class*="col-"] {
   float: none;
   display: table-cell; }
 
-.table > thead > tr > td.active, .task-list-items > thead > tr > td.active,
-.table > thead > tr > th.active, .task-list-items > thead > tr > th.active,
-.table > thead > tr.active > td, .task-list-items > thead > tr.active > td,
-.table > thead > tr.active > th, .task-list-items > thead > tr.active > th,
-.table > tbody > tr > td.active, .task-list-items > tbody > tr > td.active,
-.table > tbody > tr > th.active, .task-list-items > tbody > tr > th.active,
-.table > tbody > tr.active > td, .task-list-items > tbody > tr.active > td,
-.table > tbody > tr.active > th, .task-list-items > tbody > tr.active > th,
-.table > tfoot > tr > td.active, .task-list-items > tfoot > tr > td.active,
-.table > tfoot > tr > th.active, .task-list-items > tfoot > tr > th.active,
-.table > tfoot > tr.active > td, .task-list-items > tfoot > tr.active > td,
-.table > tfoot > tr.active > th, .task-list-items > tfoot > tr.active > th {
+.table > thead > tr > td.active, .list-items > thead > tr > td.active,
+.table > thead > tr > th.active, .list-items > thead > tr > th.active,
+.table > thead > tr.active > td, .list-items > thead > tr.active > td,
+.table > thead > tr.active > th, .list-items > thead > tr.active > th,
+.table > tbody > tr > td.active, .list-items > tbody > tr > td.active,
+.table > tbody > tr > th.active, .list-items > tbody > tr > th.active,
+.table > tbody > tr.active > td, .list-items > tbody > tr.active > td,
+.table > tbody > tr.active > th, .list-items > tbody > tr.active > th,
+.table > tfoot > tr > td.active, .list-items > tfoot > tr > td.active,
+.table > tfoot > tr > th.active, .list-items > tfoot > tr > th.active,
+.table > tfoot > tr.active > td, .list-items > tfoot > tr.active > td,
+.table > tfoot > tr.active > th, .list-items > tfoot > tr.active > th {
   background-color: #f5f5f5; }
 
-.table-hover > tbody > tr > td.active:hover, .task-list-items > tbody > tr > td.active:hover,
-.table-hover > tbody > tr > th.active:hover, .task-list-items > tbody > tr > th.active:hover,
-.table-hover > tbody > tr.active:hover > td, .task-list-items > tbody > tr.active:hover > td,
-.table-hover > tbody > tr:hover > .active, .task-list-items > tbody > tr:hover > .active,
-.table-hover > tbody > tr.active:hover > th, .task-list-items > tbody > tr.active:hover > th {
+.table-hover > tbody > tr > td.active:hover, .list-items > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover, .list-items > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td, .list-items > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active, .list-items > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th, .list-items > tbody > tr.active:hover > th {
   background-color: #e8e8e8; }
 
-.table > thead > tr > td.success, .task-list-items > thead > tr > td.success,
-.table > thead > tr > th.success, .task-list-items > thead > tr > th.success,
-.table > thead > tr.success > td, .task-list-items > thead > tr.success > td,
-.table > thead > tr.success > th, .task-list-items > thead > tr.success > th,
-.table > tbody > tr > td.success, .task-list-items > tbody > tr > td.success,
-.table > tbody > tr > th.success, .task-list-items > tbody > tr > th.success,
-.table > tbody > tr.success > td, .task-list-items > tbody > tr.success > td,
-.table > tbody > tr.success > th, .task-list-items > tbody > tr.success > th,
-.table > tfoot > tr > td.success, .task-list-items > tfoot > tr > td.success,
-.table > tfoot > tr > th.success, .task-list-items > tfoot > tr > th.success,
-.table > tfoot > tr.success > td, .task-list-items > tfoot > tr.success > td,
-.table > tfoot > tr.success > th, .task-list-items > tfoot > tr.success > th {
+.table > thead > tr > td.success, .list-items > thead > tr > td.success,
+.table > thead > tr > th.success, .list-items > thead > tr > th.success,
+.table > thead > tr.success > td, .list-items > thead > tr.success > td,
+.table > thead > tr.success > th, .list-items > thead > tr.success > th,
+.table > tbody > tr > td.success, .list-items > tbody > tr > td.success,
+.table > tbody > tr > th.success, .list-items > tbody > tr > th.success,
+.table > tbody > tr.success > td, .list-items > tbody > tr.success > td,
+.table > tbody > tr.success > th, .list-items > tbody > tr.success > th,
+.table > tfoot > tr > td.success, .list-items > tfoot > tr > td.success,
+.table > tfoot > tr > th.success, .list-items > tfoot > tr > th.success,
+.table > tfoot > tr.success > td, .list-items > tfoot > tr.success > td,
+.table > tfoot > tr.success > th, .list-items > tfoot > tr.success > th {
   background-color: #dff0d8; }
 
-.table-hover > tbody > tr > td.success:hover, .task-list-items > tbody > tr > td.success:hover,
-.table-hover > tbody > tr > th.success:hover, .task-list-items > tbody > tr > th.success:hover,
-.table-hover > tbody > tr.success:hover > td, .task-list-items > tbody > tr.success:hover > td,
-.table-hover > tbody > tr:hover > .success, .task-list-items > tbody > tr:hover > .success,
-.table-hover > tbody > tr.success:hover > th, .task-list-items > tbody > tr.success:hover > th {
+.table-hover > tbody > tr > td.success:hover, .list-items > tbody > tr > td.success:hover,
+.table-hover > tbody > tr > th.success:hover, .list-items > tbody > tr > th.success:hover,
+.table-hover > tbody > tr.success:hover > td, .list-items > tbody > tr.success:hover > td,
+.table-hover > tbody > tr:hover > .success, .list-items > tbody > tr:hover > .success,
+.table-hover > tbody > tr.success:hover > th, .list-items > tbody > tr.success:hover > th {
   background-color: #d0e9c6; }
 
-.table > thead > tr > td.info, .task-list-items > thead > tr > td.info,
-.table > thead > tr > th.info, .task-list-items > thead > tr > th.info,
-.table > thead > tr.info > td, .task-list-items > thead > tr.info > td,
-.table > thead > tr.info > th, .task-list-items > thead > tr.info > th,
-.table > tbody > tr > td.info, .task-list-items > tbody > tr > td.info,
-.table > tbody > tr > th.info, .task-list-items > tbody > tr > th.info,
-.table > tbody > tr.info > td, .task-list-items > tbody > tr.info > td,
-.table > tbody > tr.info > th, .task-list-items > tbody > tr.info > th,
-.table > tfoot > tr > td.info, .task-list-items > tfoot > tr > td.info,
-.table > tfoot > tr > th.info, .task-list-items > tfoot > tr > th.info,
-.table > tfoot > tr.info > td, .task-list-items > tfoot > tr.info > td,
-.table > tfoot > tr.info > th, .task-list-items > tfoot > tr.info > th {
+.table > thead > tr > td.info, .list-items > thead > tr > td.info,
+.table > thead > tr > th.info, .list-items > thead > tr > th.info,
+.table > thead > tr.info > td, .list-items > thead > tr.info > td,
+.table > thead > tr.info > th, .list-items > thead > tr.info > th,
+.table > tbody > tr > td.info, .list-items > tbody > tr > td.info,
+.table > tbody > tr > th.info, .list-items > tbody > tr > th.info,
+.table > tbody > tr.info > td, .list-items > tbody > tr.info > td,
+.table > tbody > tr.info > th, .list-items > tbody > tr.info > th,
+.table > tfoot > tr > td.info, .list-items > tfoot > tr > td.info,
+.table > tfoot > tr > th.info, .list-items > tfoot > tr > th.info,
+.table > tfoot > tr.info > td, .list-items > tfoot > tr.info > td,
+.table > tfoot > tr.info > th, .list-items > tfoot > tr.info > th {
   background-color: #d9edf7; }
 
-.table-hover > tbody > tr > td.info:hover, .task-list-items > tbody > tr > td.info:hover,
-.table-hover > tbody > tr > th.info:hover, .task-list-items > tbody > tr > th.info:hover,
-.table-hover > tbody > tr.info:hover > td, .task-list-items > tbody > tr.info:hover > td,
-.table-hover > tbody > tr:hover > .info, .task-list-items > tbody > tr:hover > .info,
-.table-hover > tbody > tr.info:hover > th, .task-list-items > tbody > tr.info:hover > th {
+.table-hover > tbody > tr > td.info:hover, .list-items > tbody > tr > td.info:hover,
+.table-hover > tbody > tr > th.info:hover, .list-items > tbody > tr > th.info:hover,
+.table-hover > tbody > tr.info:hover > td, .list-items > tbody > tr.info:hover > td,
+.table-hover > tbody > tr:hover > .info, .list-items > tbody > tr:hover > .info,
+.table-hover > tbody > tr.info:hover > th, .list-items > tbody > tr.info:hover > th {
   background-color: #c4e3f3; }
 
-.table > thead > tr > td.warning, .task-list-items > thead > tr > td.warning,
-.table > thead > tr > th.warning, .task-list-items > thead > tr > th.warning,
-.table > thead > tr.warning > td, .task-list-items > thead > tr.warning > td,
-.table > thead > tr.warning > th, .task-list-items > thead > tr.warning > th,
-.table > tbody > tr > td.warning, .task-list-items > tbody > tr > td.warning,
-.table > tbody > tr > th.warning, .task-list-items > tbody > tr > th.warning,
-.table > tbody > tr.warning > td, .task-list-items > tbody > tr.warning > td,
-.table > tbody > tr.warning > th, .task-list-items > tbody > tr.warning > th,
-.table > tfoot > tr > td.warning, .task-list-items > tfoot > tr > td.warning,
-.table > tfoot > tr > th.warning, .task-list-items > tfoot > tr > th.warning,
-.table > tfoot > tr.warning > td, .task-list-items > tfoot > tr.warning > td,
-.table > tfoot > tr.warning > th, .task-list-items > tfoot > tr.warning > th {
+.table > thead > tr > td.warning, .list-items > thead > tr > td.warning,
+.table > thead > tr > th.warning, .list-items > thead > tr > th.warning,
+.table > thead > tr.warning > td, .list-items > thead > tr.warning > td,
+.table > thead > tr.warning > th, .list-items > thead > tr.warning > th,
+.table > tbody > tr > td.warning, .list-items > tbody > tr > td.warning,
+.table > tbody > tr > th.warning, .list-items > tbody > tr > th.warning,
+.table > tbody > tr.warning > td, .list-items > tbody > tr.warning > td,
+.table > tbody > tr.warning > th, .list-items > tbody > tr.warning > th,
+.table > tfoot > tr > td.warning, .list-items > tfoot > tr > td.warning,
+.table > tfoot > tr > th.warning, .list-items > tfoot > tr > th.warning,
+.table > tfoot > tr.warning > td, .list-items > tfoot > tr.warning > td,
+.table > tfoot > tr.warning > th, .list-items > tfoot > tr.warning > th {
   background-color: #fcf8e3; }
 
-.table-hover > tbody > tr > td.warning:hover, .task-list-items > tbody > tr > td.warning:hover,
-.table-hover > tbody > tr > th.warning:hover, .task-list-items > tbody > tr > th.warning:hover,
-.table-hover > tbody > tr.warning:hover > td, .task-list-items > tbody > tr.warning:hover > td,
-.table-hover > tbody > tr:hover > .warning, .task-list-items > tbody > tr:hover > .warning,
-.table-hover > tbody > tr.warning:hover > th, .task-list-items > tbody > tr.warning:hover > th {
+.table-hover > tbody > tr > td.warning:hover, .list-items > tbody > tr > td.warning:hover,
+.table-hover > tbody > tr > th.warning:hover, .list-items > tbody > tr > th.warning:hover,
+.table-hover > tbody > tr.warning:hover > td, .list-items > tbody > tr.warning:hover > td,
+.table-hover > tbody > tr:hover > .warning, .list-items > tbody > tr:hover > .warning,
+.table-hover > tbody > tr.warning:hover > th, .list-items > tbody > tr.warning:hover > th {
   background-color: #faf2cc; }
 
-.table > thead > tr > td.danger, .task-list-items > thead > tr > td.danger,
-.table > thead > tr > th.danger, .task-list-items > thead > tr > th.danger,
-.table > thead > tr.danger > td, .task-list-items > thead > tr.danger > td,
-.table > thead > tr.danger > th, .task-list-items > thead > tr.danger > th,
-.table > tbody > tr > td.danger, .task-list-items > tbody > tr > td.danger,
-.table > tbody > tr > th.danger, .task-list-items > tbody > tr > th.danger,
-.table > tbody > tr.danger > td, .task-list-items > tbody > tr.danger > td,
-.table > tbody > tr.danger > th, .task-list-items > tbody > tr.danger > th,
-.table > tfoot > tr > td.danger, .task-list-items > tfoot > tr > td.danger,
-.table > tfoot > tr > th.danger, .task-list-items > tfoot > tr > th.danger,
-.table > tfoot > tr.danger > td, .task-list-items > tfoot > tr.danger > td,
-.table > tfoot > tr.danger > th, .task-list-items > tfoot > tr.danger > th {
+.table > thead > tr > td.danger, .list-items > thead > tr > td.danger,
+.table > thead > tr > th.danger, .list-items > thead > tr > th.danger,
+.table > thead > tr.danger > td, .list-items > thead > tr.danger > td,
+.table > thead > tr.danger > th, .list-items > thead > tr.danger > th,
+.table > tbody > tr > td.danger, .list-items > tbody > tr > td.danger,
+.table > tbody > tr > th.danger, .list-items > tbody > tr > th.danger,
+.table > tbody > tr.danger > td, .list-items > tbody > tr.danger > td,
+.table > tbody > tr.danger > th, .list-items > tbody > tr.danger > th,
+.table > tfoot > tr > td.danger, .list-items > tfoot > tr > td.danger,
+.table > tfoot > tr > th.danger, .list-items > tfoot > tr > th.danger,
+.table > tfoot > tr.danger > td, .list-items > tfoot > tr.danger > td,
+.table > tfoot > tr.danger > th, .list-items > tfoot > tr.danger > th {
   background-color: #f2dede; }
 
-.table-hover > tbody > tr > td.danger:hover, .task-list-items > tbody > tr > td.danger:hover,
-.table-hover > tbody > tr > th.danger:hover, .task-list-items > tbody > tr > th.danger:hover,
-.table-hover > tbody > tr.danger:hover > td, .task-list-items > tbody > tr.danger:hover > td,
-.table-hover > tbody > tr:hover > .danger, .task-list-items > tbody > tr:hover > .danger,
-.table-hover > tbody > tr.danger:hover > th, .task-list-items > tbody > tr.danger:hover > th {
+.table-hover > tbody > tr > td.danger:hover, .list-items > tbody > tr > td.danger:hover,
+.table-hover > tbody > tr > th.danger:hover, .list-items > tbody > tr > th.danger:hover,
+.table-hover > tbody > tr.danger:hover > td, .list-items > tbody > tr.danger:hover > td,
+.table-hover > tbody > tr:hover > .danger, .list-items > tbody > tr:hover > .danger,
+.table-hover > tbody > tr.danger:hover > th, .list-items > tbody > tr.danger:hover > th {
   background-color: #ebcccc; }
 
 .table-responsive {
@@ -2211,19 +2211,19 @@ table th[class*="col-"] {
       overflow-y: hidden;
       -ms-overflow-style: -ms-autohiding-scrollbar;
       border: 1px solid #ddd; }
-      .table-responsive > .table, .table-responsive > .task-list-items {
+      .table-responsive > .table, .table-responsive > .list-items {
         margin-bottom: 0; }
-        .table-responsive > .table > thead > tr > th, .table-responsive > .task-list-items > thead > tr > th,
+        .table-responsive > .table > thead > tr > th, .table-responsive > .list-items > thead > tr > th,
         .table-responsive > .table > thead > tr > td,
-        .table-responsive > .task-list-items > thead > tr > td,
+        .table-responsive > .list-items > thead > tr > td,
         .table-responsive > .table > tbody > tr > th,
-        .table-responsive > .task-list-items > tbody > tr > th,
+        .table-responsive > .list-items > tbody > tr > th,
         .table-responsive > .table > tbody > tr > td,
-        .table-responsive > .task-list-items > tbody > tr > td,
+        .table-responsive > .list-items > tbody > tr > td,
         .table-responsive > .table > tfoot > tr > th,
-        .table-responsive > .task-list-items > tfoot > tr > th,
+        .table-responsive > .list-items > tfoot > tr > th,
         .table-responsive > .table > tfoot > tr > td,
-        .table-responsive > .task-list-items > tfoot > tr > td {
+        .table-responsive > .list-items > tfoot > tr > td {
           white-space: nowrap; }
       .table-responsive > .table-bordered {
         border: 0; }
@@ -2362,8 +2362,8 @@ input[type="search"] {
   .input-group-sm > .input-group-btn > input[type="date"].btn,
   .input-group-sm > .input-group-btn > input[type="date"].list-button-edit,
   .input-group-sm > .input-group-btn > input[type="date"].list-button-save,
-  .input-group-sm > .input-group-btn > input[type="date"].list-button-new,
-  .input-group-sm > .input-group-btn > input[type="date"].list-button-delete,
+  .input-group-sm > .input-group-btn > input[type="date"].task-button-new,
+  .input-group-sm > .input-group-btn > input[type="date"].task-button-delete,
   .input-group-sm input[type="date"],
   input[type="time"].input-sm,
   .input-group-sm > input[type="time"].form-control,
@@ -2371,8 +2371,8 @@ input[type="search"] {
   .input-group-sm > .input-group-btn > input[type="time"].btn,
   .input-group-sm > .input-group-btn > input[type="time"].list-button-edit,
   .input-group-sm > .input-group-btn > input[type="time"].list-button-save,
-  .input-group-sm > .input-group-btn > input[type="time"].list-button-new,
-  .input-group-sm > .input-group-btn > input[type="time"].list-button-delete,
+  .input-group-sm > .input-group-btn > input[type="time"].task-button-new,
+  .input-group-sm > .input-group-btn > input[type="time"].task-button-delete,
   .input-group-sm
   input[type="time"],
   input[type="datetime-local"].input-sm,
@@ -2381,8 +2381,8 @@ input[type="search"] {
   .input-group-sm > .input-group-btn > input[type="datetime-local"].btn,
   .input-group-sm > .input-group-btn > input[type="datetime-local"].list-button-edit,
   .input-group-sm > .input-group-btn > input[type="datetime-local"].list-button-save,
-  .input-group-sm > .input-group-btn > input[type="datetime-local"].list-button-new,
-  .input-group-sm > .input-group-btn > input[type="datetime-local"].list-button-delete,
+  .input-group-sm > .input-group-btn > input[type="datetime-local"].task-button-new,
+  .input-group-sm > .input-group-btn > input[type="datetime-local"].task-button-delete,
   .input-group-sm
   input[type="datetime-local"],
   input[type="month"].input-sm,
@@ -2391,8 +2391,8 @@ input[type="search"] {
   .input-group-sm > .input-group-btn > input[type="month"].btn,
   .input-group-sm > .input-group-btn > input[type="month"].list-button-edit,
   .input-group-sm > .input-group-btn > input[type="month"].list-button-save,
-  .input-group-sm > .input-group-btn > input[type="month"].list-button-new,
-  .input-group-sm > .input-group-btn > input[type="month"].list-button-delete,
+  .input-group-sm > .input-group-btn > input[type="month"].task-button-new,
+  .input-group-sm > .input-group-btn > input[type="month"].task-button-delete,
   .input-group-sm
   input[type="month"] {
     line-height: 30px; }
@@ -2401,8 +2401,8 @@ input[type="search"] {
   .input-group-lg > .input-group-btn > input[type="date"].btn,
   .input-group-lg > .input-group-btn > input[type="date"].list-button-edit,
   .input-group-lg > .input-group-btn > input[type="date"].list-button-save,
-  .input-group-lg > .input-group-btn > input[type="date"].list-button-new,
-  .input-group-lg > .input-group-btn > input[type="date"].list-button-delete,
+  .input-group-lg > .input-group-btn > input[type="date"].task-button-new,
+  .input-group-lg > .input-group-btn > input[type="date"].task-button-delete,
   .input-group-lg input[type="date"],
   input[type="time"].input-lg,
   .input-group-lg > input[type="time"].form-control,
@@ -2410,8 +2410,8 @@ input[type="search"] {
   .input-group-lg > .input-group-btn > input[type="time"].btn,
   .input-group-lg > .input-group-btn > input[type="time"].list-button-edit,
   .input-group-lg > .input-group-btn > input[type="time"].list-button-save,
-  .input-group-lg > .input-group-btn > input[type="time"].list-button-new,
-  .input-group-lg > .input-group-btn > input[type="time"].list-button-delete,
+  .input-group-lg > .input-group-btn > input[type="time"].task-button-new,
+  .input-group-lg > .input-group-btn > input[type="time"].task-button-delete,
   .input-group-lg
   input[type="time"],
   input[type="datetime-local"].input-lg,
@@ -2420,8 +2420,8 @@ input[type="search"] {
   .input-group-lg > .input-group-btn > input[type="datetime-local"].btn,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].list-button-edit,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].list-button-save,
-  .input-group-lg > .input-group-btn > input[type="datetime-local"].list-button-new,
-  .input-group-lg > .input-group-btn > input[type="datetime-local"].list-button-delete,
+  .input-group-lg > .input-group-btn > input[type="datetime-local"].task-button-new,
+  .input-group-lg > .input-group-btn > input[type="datetime-local"].task-button-delete,
   .input-group-lg
   input[type="datetime-local"],
   input[type="month"].input-lg,
@@ -2430,8 +2430,8 @@ input[type="search"] {
   .input-group-lg > .input-group-btn > input[type="month"].btn,
   .input-group-lg > .input-group-btn > input[type="month"].list-button-edit,
   .input-group-lg > .input-group-btn > input[type="month"].list-button-save,
-  .input-group-lg > .input-group-btn > input[type="month"].list-button-new,
-  .input-group-lg > .input-group-btn > input[type="month"].list-button-delete,
+  .input-group-lg > .input-group-btn > input[type="month"].task-button-new,
+  .input-group-lg > .input-group-btn > input[type="month"].task-button-delete,
   .input-group-lg
   input[type="month"] {
     line-height: 46px; } }
@@ -2441,13 +2441,13 @@ input[type="search"] {
 
 .radio,
 .checkbox,
-.task-list-items tr .task-completion {
+.list-items tr .task-completion {
   position: relative;
   display: block;
   margin-top: 10px;
   margin-bottom: 10px; }
   .radio label,
-  .checkbox label, .task-list-items tr .task-completion label {
+  .checkbox label, .list-items tr .task-completion label {
     min-height: 20px;
     padding-left: 20px;
     margin-bottom: 0;
@@ -2456,15 +2456,15 @@ input[type="search"] {
 
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
-.checkbox input[type="checkbox"], .task-list-items tr .task-completion input[type="checkbox"],
+.checkbox input[type="checkbox"], .list-items tr .task-completion input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   position: absolute;
   margin-left: -20px;
   margin-top: 4px \9; }
 
 .radio + .radio,
-.checkbox + .checkbox, .task-list-items tr .task-completion + .checkbox, .task-list-items tr
-.checkbox + .task-completion, .task-list-items tr .task-completion + .task-completion {
+.checkbox + .checkbox, .list-items tr .task-completion + .checkbox, .list-items tr
+.checkbox + .task-completion, .list-items tr .task-completion + .task-completion {
   margin-top: -5px; }
 
 .radio-inline,
@@ -2499,10 +2499,10 @@ fieldset[disabled]
 
 .radio.disabled label,
 fieldset[disabled] .radio label,
-.checkbox.disabled label, .task-list-items tr .disabled.task-completion label,
+.checkbox.disabled label, .list-items tr .disabled.task-completion label,
 fieldset[disabled]
 .checkbox label,
-fieldset[disabled] .task-list-items tr .task-completion label, .task-list-items tr
+fieldset[disabled] .list-items tr .task-completion label, .list-items tr
 fieldset[disabled] .task-completion label {
   cursor: not-allowed; }
 
@@ -2516,14 +2516,14 @@ fieldset[disabled] .task-completion label {
   .input-group-lg > .input-group-btn > .form-control-static.btn,
   .input-group-lg > .input-group-btn > .form-control-static.list-button-edit,
   .input-group-lg > .input-group-btn > .form-control-static.list-button-save,
-  .input-group-lg > .input-group-btn > .form-control-static.list-button-new,
-  .input-group-lg > .input-group-btn > .form-control-static.list-button-delete, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control,
+  .input-group-lg > .input-group-btn > .form-control-static.task-button-new,
+  .input-group-lg > .input-group-btn > .form-control-static.task-button-delete, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control,
   .input-group-sm > .form-control-static.input-group-addon,
   .input-group-sm > .input-group-btn > .form-control-static.btn,
   .input-group-sm > .input-group-btn > .form-control-static.list-button-edit,
   .input-group-sm > .input-group-btn > .form-control-static.list-button-save,
-  .input-group-sm > .input-group-btn > .form-control-static.list-button-new,
-  .input-group-sm > .input-group-btn > .form-control-static.list-button-delete {
+  .input-group-sm > .input-group-btn > .form-control-static.task-button-new,
+  .input-group-sm > .input-group-btn > .form-control-static.task-button-delete {
     padding-left: 0;
     padding-right: 0; }
 
@@ -2532,8 +2532,8 @@ fieldset[disabled] .task-completion label {
 .input-group-sm > .input-group-btn > .btn,
 .input-group-sm > .input-group-btn > .list-button-edit,
 .input-group-sm > .input-group-btn > .list-button-save,
-.input-group-sm > .input-group-btn > .list-button-new,
-.input-group-sm > .input-group-btn > .list-button-delete {
+.input-group-sm > .input-group-btn > .task-button-new,
+.input-group-sm > .input-group-btn > .task-button-delete {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -2545,8 +2545,8 @@ select.input-sm, .input-group-sm > select.form-control,
 .input-group-sm > .input-group-btn > select.btn,
 .input-group-sm > .input-group-btn > select.list-button-edit,
 .input-group-sm > .input-group-btn > select.list-button-save,
-.input-group-sm > .input-group-btn > select.list-button-new,
-.input-group-sm > .input-group-btn > select.list-button-delete {
+.input-group-sm > .input-group-btn > select.task-button-new,
+.input-group-sm > .input-group-btn > select.task-button-delete {
   height: 30px;
   line-height: 30px; }
 
@@ -2555,16 +2555,16 @@ textarea.input-sm, .input-group-sm > textarea.form-control,
 .input-group-sm > .input-group-btn > textarea.btn,
 .input-group-sm > .input-group-btn > textarea.list-button-edit,
 .input-group-sm > .input-group-btn > textarea.list-button-save,
-.input-group-sm > .input-group-btn > textarea.list-button-new,
-.input-group-sm > .input-group-btn > textarea.list-button-delete,
+.input-group-sm > .input-group-btn > textarea.task-button-new,
+.input-group-sm > .input-group-btn > textarea.task-button-delete,
 select[multiple].input-sm,
 .input-group-sm > select[multiple].form-control,
 .input-group-sm > select[multiple].input-group-addon,
 .input-group-sm > .input-group-btn > select[multiple].btn,
 .input-group-sm > .input-group-btn > select[multiple].list-button-edit,
 .input-group-sm > .input-group-btn > select[multiple].list-button-save,
-.input-group-sm > .input-group-btn > select[multiple].list-button-new,
-.input-group-sm > .input-group-btn > select[multiple].list-button-delete {
+.input-group-sm > .input-group-btn > select[multiple].task-button-new,
+.input-group-sm > .input-group-btn > select[multiple].task-button-delete {
   height: auto; }
 
 .form-group-sm .form-control {
@@ -2594,8 +2594,8 @@ select[multiple].input-sm,
 .input-group-lg > .input-group-btn > .btn,
 .input-group-lg > .input-group-btn > .list-button-edit,
 .input-group-lg > .input-group-btn > .list-button-save,
-.input-group-lg > .input-group-btn > .list-button-new,
-.input-group-lg > .input-group-btn > .list-button-delete {
+.input-group-lg > .input-group-btn > .task-button-new,
+.input-group-lg > .input-group-btn > .task-button-delete {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
@@ -2607,8 +2607,8 @@ select.input-lg, .input-group-lg > select.form-control,
 .input-group-lg > .input-group-btn > select.btn,
 .input-group-lg > .input-group-btn > select.list-button-edit,
 .input-group-lg > .input-group-btn > select.list-button-save,
-.input-group-lg > .input-group-btn > select.list-button-new,
-.input-group-lg > .input-group-btn > select.list-button-delete {
+.input-group-lg > .input-group-btn > select.task-button-new,
+.input-group-lg > .input-group-btn > select.task-button-delete {
   height: 46px;
   line-height: 46px; }
 
@@ -2617,16 +2617,16 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 .input-group-lg > .input-group-btn > textarea.btn,
 .input-group-lg > .input-group-btn > textarea.list-button-edit,
 .input-group-lg > .input-group-btn > textarea.list-button-save,
-.input-group-lg > .input-group-btn > textarea.list-button-new,
-.input-group-lg > .input-group-btn > textarea.list-button-delete,
+.input-group-lg > .input-group-btn > textarea.task-button-new,
+.input-group-lg > .input-group-btn > textarea.task-button-delete,
 select[multiple].input-lg,
 .input-group-lg > select[multiple].form-control,
 .input-group-lg > select[multiple].input-group-addon,
 .input-group-lg > .input-group-btn > select[multiple].btn,
 .input-group-lg > .input-group-btn > select[multiple].list-button-edit,
 .input-group-lg > .input-group-btn > select[multiple].list-button-save,
-.input-group-lg > .input-group-btn > select[multiple].list-button-new,
-.input-group-lg > .input-group-btn > select[multiple].list-button-delete {
+.input-group-lg > .input-group-btn > select[multiple].task-button-new,
+.input-group-lg > .input-group-btn > select[multiple].task-button-delete {
   height: auto; }
 
 .form-group-lg .form-control {
@@ -2673,8 +2673,8 @@ select[multiple].input-lg,
 .input-group-lg > .input-group-btn > .btn + .form-control-feedback,
 .input-group-lg > .input-group-btn > .list-button-edit + .form-control-feedback,
 .input-group-lg > .input-group-btn > .list-button-save + .form-control-feedback,
-.input-group-lg > .input-group-btn > .list-button-new + .form-control-feedback,
-.input-group-lg > .input-group-btn > .list-button-delete + .form-control-feedback,
+.input-group-lg > .input-group-btn > .task-button-new + .form-control-feedback,
+.input-group-lg > .input-group-btn > .task-button-delete + .form-control-feedback,
 .input-group-lg + .form-control-feedback,
 .form-group-lg .form-control + .form-control-feedback {
   width: 46px;
@@ -2686,8 +2686,8 @@ select[multiple].input-lg,
 .input-group-sm > .input-group-btn > .btn + .form-control-feedback,
 .input-group-sm > .input-group-btn > .list-button-edit + .form-control-feedback,
 .input-group-sm > .input-group-btn > .list-button-save + .form-control-feedback,
-.input-group-sm > .input-group-btn > .list-button-new + .form-control-feedback,
-.input-group-sm > .input-group-btn > .list-button-delete + .form-control-feedback,
+.input-group-sm > .input-group-btn > .task-button-new + .form-control-feedback,
+.input-group-sm > .input-group-btn > .task-button-delete + .form-control-feedback,
 .input-group-sm + .form-control-feedback,
 .form-group-sm .form-control + .form-control-feedback {
   width: 30px;
@@ -2698,12 +2698,12 @@ select[multiple].input-lg,
 .has-success .control-label,
 .has-success .radio,
 .has-success .checkbox,
-.has-success .task-list-items tr .task-completion, .task-list-items tr
+.has-success .list-items tr .task-completion, .list-items tr
 .has-success .task-completion,
 .has-success .radio-inline,
 .has-success .checkbox-inline,
 .has-success.radio label,
-.has-success.checkbox label, .task-list-items tr .has-success.task-completion label,
+.has-success.checkbox label, .list-items tr .has-success.task-completion label,
 .has-success.radio-inline label,
 .has-success.checkbox-inline label {
   color: #3c763d; }
@@ -2729,12 +2729,12 @@ select[multiple].input-lg,
 .has-warning .control-label,
 .has-warning .radio,
 .has-warning .checkbox,
-.has-warning .task-list-items tr .task-completion, .task-list-items tr
+.has-warning .list-items tr .task-completion, .list-items tr
 .has-warning .task-completion,
 .has-warning .radio-inline,
 .has-warning .checkbox-inline,
 .has-warning.radio label,
-.has-warning.checkbox label, .task-list-items tr .has-warning.task-completion label,
+.has-warning.checkbox label, .list-items tr .has-warning.task-completion label,
 .has-warning.radio-inline label,
 .has-warning.checkbox-inline label {
   color: #8a6d3b; }
@@ -2760,12 +2760,12 @@ select[multiple].input-lg,
 .has-error .control-label,
 .has-error .radio,
 .has-error .checkbox,
-.has-error .task-list-items tr .task-completion, .task-list-items tr
+.has-error .list-items tr .task-completion, .list-items tr
 .has-error .task-completion,
 .has-error .radio-inline,
 .has-error .checkbox-inline,
 .has-error.radio label,
-.has-error.checkbox label, .task-list-items tr .has-error.task-completion label,
+.has-error.checkbox label, .list-items tr .has-error.task-completion label,
 .has-error.radio-inline label,
 .has-error.checkbox-inline label {
   color: #a94442; }
@@ -2824,7 +2824,7 @@ select[multiple].input-lg,
     vertical-align: middle; }
   .form-inline .radio,
   .form-inline .checkbox,
-  .form-inline .task-list-items tr .task-completion, .task-list-items tr
+  .form-inline .list-items tr .task-completion, .list-items tr
   .form-inline .task-completion {
     display: inline-block;
     margin-top: 0;
@@ -2832,12 +2832,12 @@ select[multiple].input-lg,
     vertical-align: middle; }
     .form-inline .radio label,
     .form-inline .checkbox label,
-    .form-inline .task-list-items tr .task-completion label, .task-list-items tr
+    .form-inline .list-items tr .task-completion label, .list-items tr
     .form-inline .task-completion label {
       padding-left: 0; }
   .form-inline .radio input[type="radio"],
   .form-inline .checkbox input[type="checkbox"],
-  .form-inline .task-list-items tr .task-completion input[type="checkbox"], .task-list-items tr
+  .form-inline .list-items tr .task-completion input[type="checkbox"], .list-items tr
   .form-inline .task-completion input[type="checkbox"] {
     position: relative;
     margin-left: 0; }
@@ -2846,7 +2846,7 @@ select[multiple].input-lg,
 
 .form-horizontal .radio,
 .form-horizontal .checkbox,
-.form-horizontal .task-list-items tr .task-completion, .task-list-items tr
+.form-horizontal .list-items tr .task-completion, .list-items tr
 .form-horizontal .task-completion,
 .form-horizontal .radio-inline,
 .form-horizontal .checkbox-inline {
@@ -2856,7 +2856,7 @@ select[multiple].input-lg,
 
 .form-horizontal .radio,
 .form-horizontal .checkbox,
-.form-horizontal .task-list-items tr .task-completion, .task-list-items tr
+.form-horizontal .list-items tr .task-completion, .list-items tr
 .form-horizontal .task-completion {
   min-height: 27px; }
 
@@ -2888,7 +2888,7 @@ select[multiple].input-lg,
     padding-top: 6px;
     font-size: 12px; } }
 
-.btn, .list-button-edit, .list-button-save, .list-button-new, .list-button-delete {
+.btn, .list-button-edit, .list-button-save, .task-button-new, .task-button-delete {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -2907,35 +2907,35 @@ select[multiple].input-lg,
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .btn:focus, .list-button-edit:focus, .list-button-save:focus, .list-button-new:focus, .list-button-delete:focus, .btn.focus, .focus.list-button-edit, .focus.list-button-save, .focus.list-button-new, .focus.list-button-delete, .btn:active:focus, .list-button-edit:active:focus, .list-button-save:active:focus, .list-button-new:active:focus, .list-button-delete:active:focus, .btn:active.focus, .list-button-edit:active.focus, .list-button-save:active.focus, .list-button-new:active.focus, .list-button-delete:active.focus, .btn.active:focus, .active.list-button-edit:focus, .active.list-button-save:focus, .active.list-button-new:focus, .active.list-button-delete:focus, .btn.active.focus, .active.focus.list-button-edit, .active.focus.list-button-save, .active.focus.list-button-new, .active.focus.list-button-delete {
+  .btn:focus, .list-button-edit:focus, .list-button-save:focus, .task-button-new:focus, .task-button-delete:focus, .btn.focus, .focus.list-button-edit, .focus.list-button-save, .focus.task-button-new, .focus.task-button-delete, .btn:active:focus, .list-button-edit:active:focus, .list-button-save:active:focus, .task-button-new:active:focus, .task-button-delete:active:focus, .btn:active.focus, .list-button-edit:active.focus, .list-button-save:active.focus, .task-button-new:active.focus, .task-button-delete:active.focus, .btn.active:focus, .active.list-button-edit:focus, .active.list-button-save:focus, .active.task-button-new:focus, .active.task-button-delete:focus, .btn.active.focus, .active.focus.list-button-edit, .active.focus.list-button-save, .active.focus.task-button-new, .active.focus.task-button-delete {
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn:hover, .list-button-edit:hover, .list-button-save:hover, .list-button-new:hover, .list-button-delete:hover, .btn:focus, .list-button-edit:focus, .list-button-save:focus, .list-button-new:focus, .list-button-delete:focus, .btn.focus, .focus.list-button-edit, .focus.list-button-save, .focus.list-button-new, .focus.list-button-delete {
+  .btn:hover, .list-button-edit:hover, .list-button-save:hover, .task-button-new:hover, .task-button-delete:hover, .btn:focus, .list-button-edit:focus, .list-button-save:focus, .task-button-new:focus, .task-button-delete:focus, .btn.focus, .focus.list-button-edit, .focus.list-button-save, .focus.task-button-new, .focus.task-button-delete {
     color: #333;
     text-decoration: none; }
-  .btn:active, .list-button-edit:active, .list-button-save:active, .list-button-new:active, .list-button-delete:active, .btn.active, .active.list-button-edit, .active.list-button-save, .active.list-button-new, .active.list-button-delete {
+  .btn:active, .list-button-edit:active, .list-button-save:active, .task-button-new:active, .task-button-delete:active, .btn.active, .active.list-button-edit, .active.list-button-save, .active.task-button-new, .active.task-button-delete {
     outline: 0;
     background-image: none;
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn.disabled, .disabled.list-button-edit, .disabled.list-button-save, .disabled.list-button-new, .disabled.list-button-delete, .btn[disabled], [disabled].list-button-edit, [disabled].list-button-save, [disabled].list-button-new, [disabled].list-button-delete,
+  .btn.disabled, .disabled.list-button-edit, .disabled.list-button-save, .disabled.task-button-new, .disabled.task-button-delete, .btn[disabled], [disabled].list-button-edit, [disabled].list-button-save, [disabled].task-button-new, [disabled].task-button-delete,
   fieldset[disabled] .btn,
   fieldset[disabled] .list-button-edit,
   fieldset[disabled] .list-button-save,
-  fieldset[disabled] .list-button-new,
-  fieldset[disabled] .list-button-delete {
+  fieldset[disabled] .task-button-new,
+  fieldset[disabled] .task-button-delete {
     cursor: not-allowed;
     opacity: 0.65;
     filter: alpha(opacity=65);
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-a.btn.disabled, a.disabled.list-button-edit, a.disabled.list-button-save, a.disabled.list-button-new, a.disabled.list-button-delete,
+a.btn.disabled, a.disabled.list-button-edit, a.disabled.list-button-save, a.disabled.task-button-new, a.disabled.task-button-delete,
 fieldset[disabled] a.btn,
 fieldset[disabled] a.list-button-edit,
 fieldset[disabled] a.list-button-save,
-fieldset[disabled] a.list-button-new,
-fieldset[disabled] a.list-button-delete {
+fieldset[disabled] a.task-button-new,
+fieldset[disabled] a.task-button-delete {
   pointer-events: none; }
 
 .btn-default, .list-button-edit, .list-button-save {
@@ -3176,46 +3176,46 @@ fieldset[disabled] a.list-button-delete {
     color: #d9534f;
     background-color: #fff; }
 
-.btn-link, .list-button-new, .list-button-delete {
+.btn-link, .task-button-new, .task-button-delete {
   color: #337ab7;
   font-weight: normal;
   border-radius: 0; }
-  .btn-link, .list-button-new, .list-button-delete, .btn-link:active, .list-button-new:active, .list-button-delete:active, .btn-link.active, .active.list-button-new, .active.list-button-delete, .btn-link[disabled], [disabled].list-button-new, [disabled].list-button-delete,
+  .btn-link, .task-button-new, .task-button-delete, .btn-link:active, .task-button-new:active, .task-button-delete:active, .btn-link.active, .active.task-button-new, .active.task-button-delete, .btn-link[disabled], [disabled].task-button-new, [disabled].task-button-delete,
   fieldset[disabled] .btn-link,
-  fieldset[disabled] .list-button-new,
-  fieldset[disabled] .list-button-delete {
+  fieldset[disabled] .task-button-new,
+  fieldset[disabled] .task-button-delete {
     background-color: transparent;
     -webkit-box-shadow: none;
     box-shadow: none; }
-  .btn-link, .list-button-new, .list-button-delete, .btn-link:hover, .list-button-new:hover, .list-button-delete:hover, .btn-link:focus, .list-button-new:focus, .list-button-delete:focus, .btn-link:active, .list-button-new:active, .list-button-delete:active {
+  .btn-link, .task-button-new, .task-button-delete, .btn-link:hover, .task-button-new:hover, .task-button-delete:hover, .btn-link:focus, .task-button-new:focus, .task-button-delete:focus, .btn-link:active, .task-button-new:active, .task-button-delete:active {
     border-color: transparent; }
-  .btn-link:hover, .list-button-new:hover, .list-button-delete:hover, .btn-link:focus, .list-button-new:focus, .list-button-delete:focus {
+  .btn-link:hover, .task-button-new:hover, .task-button-delete:hover, .btn-link:focus, .task-button-new:focus, .task-button-delete:focus {
     color: #23527c;
     text-decoration: underline;
     background-color: transparent; }
-  .btn-link[disabled]:hover, [disabled].list-button-new:hover, [disabled].list-button-delete:hover, .btn-link[disabled]:focus, [disabled].list-button-new:focus, [disabled].list-button-delete:focus,
+  .btn-link[disabled]:hover, [disabled].task-button-new:hover, [disabled].task-button-delete:hover, .btn-link[disabled]:focus, [disabled].task-button-new:focus, [disabled].task-button-delete:focus,
   fieldset[disabled] .btn-link:hover,
-  fieldset[disabled] .list-button-new:hover,
-  fieldset[disabled] .list-button-delete:hover,
+  fieldset[disabled] .task-button-new:hover,
+  fieldset[disabled] .task-button-delete:hover,
   fieldset[disabled] .btn-link:focus,
-  fieldset[disabled] .list-button-new:focus,
-  fieldset[disabled] .list-button-delete:focus {
+  fieldset[disabled] .task-button-new:focus,
+  fieldset[disabled] .task-button-delete:focus {
     color: #777777;
     text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .list-button-edit, .btn-group-lg > .list-button-save, .btn-group-lg > .list-button-new, .btn-group-lg > .list-button-delete {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .list-button-edit, .btn-group-lg > .list-button-save, .btn-group-lg > .task-button-new, .btn-group-lg > .task-button-delete {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33333;
   border-radius: 6px; }
 
-.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .list-button-edit, .btn-group-sm > .list-button-save, .btn-group-sm > .list-button-new, .btn-group-sm > .list-button-delete, .list-button-edit, .list-button-save, .list-button-new, .list-button-delete {
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .list-button-edit, .btn-group-sm > .list-button-save, .btn-group-sm > .task-button-new, .btn-group-sm > .task-button-delete, .list-button-edit, .list-button-save, .task-button-new, .task-button-delete {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .list-button-edit, .btn-group-xs > .list-button-save, .btn-group-xs > .list-button-new, .btn-group-xs > .list-button-delete {
+.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .list-button-edit, .btn-group-xs > .list-button-save, .btn-group-xs > .task-button-new, .btn-group-xs > .task-button-delete {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
@@ -3399,48 +3399,48 @@ tbody.collapse.in {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btn-group > .btn, .btn-group > .list-button-edit, .btn-group > .list-button-save, .btn-group > .list-button-new, .btn-group > .list-button-delete,
+  .btn-group > .btn, .btn-group > .list-button-edit, .btn-group > .list-button-save, .btn-group > .task-button-new, .btn-group > .task-button-delete,
   .btn-group-vertical > .btn,
   .btn-group-vertical > .list-button-edit,
   .btn-group-vertical > .list-button-save,
-  .btn-group-vertical > .list-button-new,
-  .btn-group-vertical > .list-button-delete {
+  .btn-group-vertical > .task-button-new,
+  .btn-group-vertical > .task-button-delete {
     position: relative;
     float: left; }
-    .btn-group > .btn:hover, .btn-group > .list-button-edit:hover, .btn-group > .list-button-save:hover, .btn-group > .list-button-new:hover, .btn-group > .list-button-delete:hover, .btn-group > .btn:focus, .btn-group > .list-button-edit:focus, .btn-group > .list-button-save:focus, .btn-group > .list-button-new:focus, .btn-group > .list-button-delete:focus, .btn-group > .btn:active, .btn-group > .list-button-edit:active, .btn-group > .list-button-save:active, .btn-group > .list-button-new:active, .btn-group > .list-button-delete:active, .btn-group > .btn.active, .btn-group > .active.list-button-edit, .btn-group > .active.list-button-save, .btn-group > .active.list-button-new, .btn-group > .active.list-button-delete,
+    .btn-group > .btn:hover, .btn-group > .list-button-edit:hover, .btn-group > .list-button-save:hover, .btn-group > .task-button-new:hover, .btn-group > .task-button-delete:hover, .btn-group > .btn:focus, .btn-group > .list-button-edit:focus, .btn-group > .list-button-save:focus, .btn-group > .task-button-new:focus, .btn-group > .task-button-delete:focus, .btn-group > .btn:active, .btn-group > .list-button-edit:active, .btn-group > .list-button-save:active, .btn-group > .task-button-new:active, .btn-group > .task-button-delete:active, .btn-group > .btn.active, .btn-group > .active.list-button-edit, .btn-group > .active.list-button-save, .btn-group > .active.task-button-new, .btn-group > .active.task-button-delete,
     .btn-group-vertical > .btn:hover,
     .btn-group-vertical > .list-button-edit:hover,
     .btn-group-vertical > .list-button-save:hover,
-    .btn-group-vertical > .list-button-new:hover,
-    .btn-group-vertical > .list-button-delete:hover,
+    .btn-group-vertical > .task-button-new:hover,
+    .btn-group-vertical > .task-button-delete:hover,
     .btn-group-vertical > .btn:focus,
     .btn-group-vertical > .list-button-edit:focus,
     .btn-group-vertical > .list-button-save:focus,
-    .btn-group-vertical > .list-button-new:focus,
-    .btn-group-vertical > .list-button-delete:focus,
+    .btn-group-vertical > .task-button-new:focus,
+    .btn-group-vertical > .task-button-delete:focus,
     .btn-group-vertical > .btn:active,
     .btn-group-vertical > .list-button-edit:active,
     .btn-group-vertical > .list-button-save:active,
-    .btn-group-vertical > .list-button-new:active,
-    .btn-group-vertical > .list-button-delete:active,
+    .btn-group-vertical > .task-button-new:active,
+    .btn-group-vertical > .task-button-delete:active,
     .btn-group-vertical > .btn.active,
     .btn-group-vertical > .active.list-button-edit,
     .btn-group-vertical > .active.list-button-save,
-    .btn-group-vertical > .active.list-button-new,
-    .btn-group-vertical > .active.list-button-delete {
+    .btn-group-vertical > .active.task-button-new,
+    .btn-group-vertical > .active.task-button-delete {
       z-index: 2; }
 
-.btn-group .btn + .btn, .btn-group .list-button-edit + .btn, .btn-group .list-button-save + .btn, .btn-group .list-button-new + .btn, .btn-group .list-button-delete + .btn, .btn-group .btn + .list-button-edit, .btn-group .list-button-edit + .list-button-edit, .btn-group .list-button-save + .list-button-edit, .btn-group .list-button-new + .list-button-edit, .btn-group .list-button-delete + .list-button-edit, .btn-group .btn + .list-button-save, .btn-group .list-button-edit + .list-button-save, .btn-group .list-button-save + .list-button-save, .btn-group .list-button-new + .list-button-save, .btn-group .list-button-delete + .list-button-save, .btn-group .btn + .list-button-new, .btn-group .list-button-edit + .list-button-new, .btn-group .list-button-save + .list-button-new, .btn-group .list-button-new + .list-button-new, .btn-group .list-button-delete + .list-button-new, .btn-group .btn + .list-button-delete, .btn-group .list-button-edit + .list-button-delete, .btn-group .list-button-save + .list-button-delete, .btn-group .list-button-new + .list-button-delete, .btn-group .list-button-delete + .list-button-delete,
+.btn-group .btn + .btn, .btn-group .list-button-edit + .btn, .btn-group .list-button-save + .btn, .btn-group .task-button-new + .btn, .btn-group .task-button-delete + .btn, .btn-group .btn + .list-button-edit, .btn-group .list-button-edit + .list-button-edit, .btn-group .list-button-save + .list-button-edit, .btn-group .task-button-new + .list-button-edit, .btn-group .task-button-delete + .list-button-edit, .btn-group .btn + .list-button-save, .btn-group .list-button-edit + .list-button-save, .btn-group .list-button-save + .list-button-save, .btn-group .task-button-new + .list-button-save, .btn-group .task-button-delete + .list-button-save, .btn-group .btn + .task-button-new, .btn-group .list-button-edit + .task-button-new, .btn-group .list-button-save + .task-button-new, .btn-group .task-button-new + .task-button-new, .btn-group .task-button-delete + .task-button-new, .btn-group .btn + .task-button-delete, .btn-group .list-button-edit + .task-button-delete, .btn-group .list-button-save + .task-button-delete, .btn-group .task-button-new + .task-button-delete, .btn-group .task-button-delete + .task-button-delete,
 .btn-group .btn + .btn-group,
 .btn-group .list-button-edit + .btn-group,
 .btn-group .list-button-save + .btn-group,
-.btn-group .list-button-new + .btn-group,
-.btn-group .list-button-delete + .btn-group,
+.btn-group .task-button-new + .btn-group,
+.btn-group .task-button-delete + .btn-group,
 .btn-group .btn-group + .btn,
 .btn-group .btn-group + .list-button-edit,
 .btn-group .btn-group + .list-button-save,
-.btn-group .btn-group + .list-button-new,
-.btn-group .btn-group + .list-button-delete,
+.btn-group .btn-group + .task-button-new,
+.btn-group .btn-group + .task-button-delete,
 .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
@@ -3451,25 +3451,25 @@ tbody.collapse.in {
     display: table; }
   .btn-toolbar:after {
     clear: both; }
-  .btn-toolbar .btn, .btn-toolbar .list-button-edit, .btn-toolbar .list-button-save, .btn-toolbar .list-button-new, .btn-toolbar .list-button-delete,
+  .btn-toolbar .btn, .btn-toolbar .list-button-edit, .btn-toolbar .list-button-save, .btn-toolbar .task-button-new, .btn-toolbar .task-button-delete,
   .btn-toolbar .btn-group,
   .btn-toolbar .input-group {
     float: left; }
-  .btn-toolbar > .btn, .btn-toolbar > .list-button-edit, .btn-toolbar > .list-button-save, .btn-toolbar > .list-button-new, .btn-toolbar > .list-button-delete,
+  .btn-toolbar > .btn, .btn-toolbar > .list-button-edit, .btn-toolbar > .list-button-save, .btn-toolbar > .task-button-new, .btn-toolbar > .task-button-delete,
   .btn-toolbar > .btn-group,
   .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-edit:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-save:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-new:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-delete:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-edit:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-save:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .task-button-new:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .task-button-delete:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child, .btn-group > .list-button-edit:first-child, .btn-group > .list-button-save:first-child, .btn-group > .list-button-new:first-child, .btn-group > .list-button-delete:first-child {
+.btn-group > .btn:first-child, .btn-group > .list-button-edit:first-child, .btn-group > .list-button-save:first-child, .btn-group > .task-button-new:first-child, .btn-group > .task-button-delete:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-edit:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-save:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-new:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-delete:first-child:not(:last-child):not(.dropdown-toggle) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-edit:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .list-button-save:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .task-button-new:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .task-button-delete:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child), .btn-group > .list-button-edit:last-child:not(:first-child), .btn-group > .list-button-save:last-child:not(:first-child), .btn-group > .list-button-new:last-child:not(:first-child), .btn-group > .list-button-delete:last-child:not(:first-child),
+.btn-group > .btn:last-child:not(:first-child), .btn-group > .list-button-edit:last-child:not(:first-child), .btn-group > .list-button-save:last-child:not(:first-child), .btn-group > .task-button-new:last-child:not(:first-child), .btn-group > .task-button-delete:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
@@ -3477,15 +3477,15 @@ tbody.collapse.in {
 .btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .list-button-edit, .btn-group > .btn-group:not(:first-child):not(:last-child) > .list-button-save, .btn-group > .btn-group:not(:first-child):not(:last-child) > .list-button-new, .btn-group > .btn-group:not(:first-child):not(:last-child) > .list-button-delete {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .list-button-edit, .btn-group > .btn-group:not(:first-child):not(:last-child) > .list-button-save, .btn-group > .btn-group:not(:first-child):not(:last-child) > .task-button-new, .btn-group > .btn-group:not(:first-child):not(:last-child) > .task-button-delete {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .list-button-edit:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .list-button-save:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .list-button-new:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .list-button-delete:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .list-button-edit:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .list-button-save:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .task-button-new:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .task-button-delete:last-child,
 .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .list-button-edit:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .list-button-save:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .list-button-new:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .list-button-delete:first-child {
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .list-button-edit:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .list-button-save:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .task-button-new:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .task-button-delete:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3493,38 +3493,38 @@ tbody.collapse.in {
 .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle, .btn-group > .list-button-edit + .dropdown-toggle, .btn-group > .list-button-save + .dropdown-toggle, .btn-group > .list-button-new + .dropdown-toggle, .btn-group > .list-button-delete + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .btn-group > .list-button-edit + .dropdown-toggle, .btn-group > .list-button-save + .dropdown-toggle, .btn-group > .task-button-new + .dropdown-toggle, .btn-group > .task-button-delete + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .list-button-edit + .dropdown-toggle, .btn-group-lg.btn-group > .list-button-save + .dropdown-toggle, .btn-group-lg.btn-group > .list-button-new + .dropdown-toggle, .btn-group-lg.btn-group > .list-button-delete + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .list-button-edit + .dropdown-toggle, .btn-group-lg.btn-group > .list-button-save + .dropdown-toggle, .btn-group-lg.btn-group > .task-button-new + .dropdown-toggle, .btn-group-lg.btn-group > .task-button-delete + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
 .btn-group.open .dropdown-toggle {
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn-group.open .dropdown-toggle.btn-link, .btn-group.open .dropdown-toggle.list-button-new, .btn-group.open .dropdown-toggle.list-button-delete {
+  .btn-group.open .dropdown-toggle.btn-link, .btn-group.open .dropdown-toggle.task-button-new, .btn-group.open .dropdown-toggle.task-button-delete {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn .caret, .list-button-edit .caret, .list-button-save .caret, .list-button-new .caret, .list-button-delete .caret {
+.btn .caret, .list-button-edit .caret, .list-button-save .caret, .task-button-new .caret, .task-button-delete .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .list-button-edit .caret, .btn-group-lg > .list-button-save .caret, .btn-group-lg > .list-button-new .caret, .btn-group-lg > .list-button-delete .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .list-button-edit .caret, .btn-group-lg > .list-button-save .caret, .btn-group-lg > .task-button-new .caret, .btn-group-lg > .task-button-delete .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .list-button-edit .caret, .dropup .btn-group-lg > .list-button-save .caret, .dropup .btn-group-lg > .list-button-new .caret, .dropup .btn-group-lg > .list-button-delete .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .list-button-edit .caret, .dropup .btn-group-lg > .list-button-save .caret, .dropup .btn-group-lg > .task-button-new .caret, .dropup .btn-group-lg > .task-button-delete .caret {
   border-width: 0 5px 5px; }
 
-.btn-group-vertical > .btn, .btn-group-vertical > .list-button-edit, .btn-group-vertical > .list-button-save, .btn-group-vertical > .list-button-new, .btn-group-vertical > .list-button-delete,
+.btn-group-vertical > .btn, .btn-group-vertical > .list-button-edit, .btn-group-vertical > .list-button-save, .btn-group-vertical > .task-button-new, .btn-group-vertical > .task-button-delete,
 .btn-group-vertical > .btn-group,
 .btn-group-vertical > .btn-group > .btn,
 .btn-group-vertical > .btn-group > .list-button-edit,
 .btn-group-vertical > .btn-group > .list-button-save,
-.btn-group-vertical > .btn-group > .list-button-new,
-.btn-group-vertical > .btn-group > .list-button-delete {
+.btn-group-vertical > .btn-group > .task-button-new,
+.btn-group-vertical > .btn-group > .task-button-delete {
   display: block;
   float: none;
   width: 100%;
@@ -3537,48 +3537,48 @@ tbody.collapse.in {
 .btn-group-vertical > .btn-group:after {
   clear: both; }
 
-.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .list-button-edit, .btn-group-vertical > .btn-group > .list-button-save, .btn-group-vertical > .btn-group > .list-button-new, .btn-group-vertical > .btn-group > .list-button-delete {
+.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .list-button-edit, .btn-group-vertical > .btn-group > .list-button-save, .btn-group-vertical > .btn-group > .task-button-new, .btn-group-vertical > .btn-group > .task-button-delete {
   float: none; }
 
-.btn-group-vertical > .btn + .btn, .btn-group-vertical > .list-button-edit + .btn, .btn-group-vertical > .list-button-save + .btn, .btn-group-vertical > .list-button-new + .btn, .btn-group-vertical > .list-button-delete + .btn, .btn-group-vertical > .btn + .list-button-edit, .btn-group-vertical > .list-button-edit + .list-button-edit, .btn-group-vertical > .list-button-save + .list-button-edit, .btn-group-vertical > .list-button-new + .list-button-edit, .btn-group-vertical > .list-button-delete + .list-button-edit, .btn-group-vertical > .btn + .list-button-save, .btn-group-vertical > .list-button-edit + .list-button-save, .btn-group-vertical > .list-button-save + .list-button-save, .btn-group-vertical > .list-button-new + .list-button-save, .btn-group-vertical > .list-button-delete + .list-button-save, .btn-group-vertical > .btn + .list-button-new, .btn-group-vertical > .list-button-edit + .list-button-new, .btn-group-vertical > .list-button-save + .list-button-new, .btn-group-vertical > .list-button-new + .list-button-new, .btn-group-vertical > .list-button-delete + .list-button-new, .btn-group-vertical > .btn + .list-button-delete, .btn-group-vertical > .list-button-edit + .list-button-delete, .btn-group-vertical > .list-button-save + .list-button-delete, .btn-group-vertical > .list-button-new + .list-button-delete, .btn-group-vertical > .list-button-delete + .list-button-delete,
+.btn-group-vertical > .btn + .btn, .btn-group-vertical > .list-button-edit + .btn, .btn-group-vertical > .list-button-save + .btn, .btn-group-vertical > .task-button-new + .btn, .btn-group-vertical > .task-button-delete + .btn, .btn-group-vertical > .btn + .list-button-edit, .btn-group-vertical > .list-button-edit + .list-button-edit, .btn-group-vertical > .list-button-save + .list-button-edit, .btn-group-vertical > .task-button-new + .list-button-edit, .btn-group-vertical > .task-button-delete + .list-button-edit, .btn-group-vertical > .btn + .list-button-save, .btn-group-vertical > .list-button-edit + .list-button-save, .btn-group-vertical > .list-button-save + .list-button-save, .btn-group-vertical > .task-button-new + .list-button-save, .btn-group-vertical > .task-button-delete + .list-button-save, .btn-group-vertical > .btn + .task-button-new, .btn-group-vertical > .list-button-edit + .task-button-new, .btn-group-vertical > .list-button-save + .task-button-new, .btn-group-vertical > .task-button-new + .task-button-new, .btn-group-vertical > .task-button-delete + .task-button-new, .btn-group-vertical > .btn + .task-button-delete, .btn-group-vertical > .list-button-edit + .task-button-delete, .btn-group-vertical > .list-button-save + .task-button-delete, .btn-group-vertical > .task-button-new + .task-button-delete, .btn-group-vertical > .task-button-delete + .task-button-delete,
 .btn-group-vertical > .btn + .btn-group,
 .btn-group-vertical > .list-button-edit + .btn-group,
 .btn-group-vertical > .list-button-save + .btn-group,
-.btn-group-vertical > .list-button-new + .btn-group,
-.btn-group-vertical > .list-button-delete + .btn-group,
+.btn-group-vertical > .task-button-new + .btn-group,
+.btn-group-vertical > .task-button-delete + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
 .btn-group-vertical > .btn-group + .list-button-edit,
 .btn-group-vertical > .btn-group + .list-button-save,
-.btn-group-vertical > .btn-group + .list-button-new,
-.btn-group-vertical > .btn-group + .list-button-delete,
+.btn-group-vertical > .btn-group + .task-button-new,
+.btn-group-vertical > .btn-group + .task-button-delete,
 .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .list-button-edit:not(:first-child):not(:last-child), .btn-group-vertical > .list-button-save:not(:first-child):not(:last-child), .btn-group-vertical > .list-button-new:not(:first-child):not(:last-child), .btn-group-vertical > .list-button-delete:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .list-button-edit:not(:first-child):not(:last-child), .btn-group-vertical > .list-button-save:not(:first-child):not(:last-child), .btn-group-vertical > .task-button-new:not(:first-child):not(:last-child), .btn-group-vertical > .task-button-delete:not(:first-child):not(:last-child) {
   border-radius: 0; }
 
-.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .list-button-edit:first-child:not(:last-child), .btn-group-vertical > .list-button-save:first-child:not(:last-child), .btn-group-vertical > .list-button-new:first-child:not(:last-child), .btn-group-vertical > .list-button-delete:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .list-button-edit:first-child:not(:last-child), .btn-group-vertical > .list-button-save:first-child:not(:last-child), .btn-group-vertical > .task-button-new:first-child:not(:last-child), .btn-group-vertical > .task-button-delete:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .list-button-edit:last-child:not(:first-child), .btn-group-vertical > .list-button-save:last-child:not(:first-child), .btn-group-vertical > .list-button-new:last-child:not(:first-child), .btn-group-vertical > .list-button-delete:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .list-button-edit:last-child:not(:first-child), .btn-group-vertical > .list-button-save:last-child:not(:first-child), .btn-group-vertical > .task-button-new:last-child:not(:first-child), .btn-group-vertical > .task-button-delete:last-child:not(:first-child) {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .list-button-edit, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .list-button-save, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .list-button-new, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .list-button-delete {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .list-button-edit, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .list-button-save, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .task-button-new, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .task-button-delete {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .list-button-edit:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .list-button-save:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .list-button-new:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .list-button-delete:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .list-button-edit:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .list-button-save:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .task-button-new:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .task-button-delete:last-child,
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .list-button-edit:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .list-button-save:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .list-button-new:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .list-button-delete:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .list-button-edit:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .list-button-save:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .task-button-new:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .task-button-delete:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3587,32 +3587,32 @@ tbody.collapse.in {
   width: 100%;
   table-layout: fixed;
   border-collapse: separate; }
-  .btn-group-justified > .btn, .btn-group-justified > .list-button-edit, .btn-group-justified > .list-button-save, .btn-group-justified > .list-button-new, .btn-group-justified > .list-button-delete,
+  .btn-group-justified > .btn, .btn-group-justified > .list-button-edit, .btn-group-justified > .list-button-save, .btn-group-justified > .task-button-new, .btn-group-justified > .task-button-delete,
   .btn-group-justified > .btn-group {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .list-button-edit, .btn-group-justified > .btn-group .list-button-save, .btn-group-justified > .btn-group .list-button-new, .btn-group-justified > .btn-group .list-button-delete {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .list-button-edit, .btn-group-justified > .btn-group .list-button-save, .btn-group-justified > .btn-group .task-button-new, .btn-group-justified > .btn-group .task-button-delete {
     width: 100%; }
   .btn-group-justified > .btn-group .dropdown-menu {
     left: auto; }
 
-[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .list-button-edit input[type="radio"], [data-toggle="buttons"] > .list-button-save input[type="radio"], [data-toggle="buttons"] > .list-button-new input[type="radio"], [data-toggle="buttons"] > .list-button-delete input[type="radio"],
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .list-button-edit input[type="radio"], [data-toggle="buttons"] > .list-button-save input[type="radio"], [data-toggle="buttons"] > .task-button-new input[type="radio"], [data-toggle="buttons"] > .task-button-delete input[type="radio"],
 [data-toggle="buttons"] > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .list-button-edit input[type="checkbox"],
 [data-toggle="buttons"] > .list-button-save input[type="checkbox"],
-[data-toggle="buttons"] > .list-button-new input[type="checkbox"],
-[data-toggle="buttons"] > .list-button-delete input[type="checkbox"],
+[data-toggle="buttons"] > .task-button-new input[type="checkbox"],
+[data-toggle="buttons"] > .task-button-delete input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .list-button-edit input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .list-button-save input[type="radio"],
-[data-toggle="buttons"] > .btn-group > .list-button-new input[type="radio"],
-[data-toggle="buttons"] > .btn-group > .list-button-delete input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .task-button-new input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .task-button-delete input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .list-button-edit input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .list-button-save input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > .list-button-new input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > .list-button-delete input[type="checkbox"] {
+[data-toggle="buttons"] > .btn-group > .task-button-new input[type="checkbox"],
+[data-toggle="buttons"] > .btn-group > .task-button-delete input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
@@ -3664,8 +3664,8 @@ tbody.collapse.in {
   .input-group-sm > .input-group-btn > .input-group-addon.btn,
   .input-group-sm > .input-group-btn > .input-group-addon.list-button-edit,
   .input-group-sm > .input-group-btn > .input-group-addon.list-button-save,
-  .input-group-sm > .input-group-btn > .input-group-addon.list-button-new,
-  .input-group-sm > .input-group-btn > .input-group-addon.list-button-delete {
+  .input-group-sm > .input-group-btn > .input-group-addon.task-button-new,
+  .input-group-sm > .input-group-btn > .input-group-addon.task-button-delete {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 3px; }
@@ -3674,8 +3674,8 @@ tbody.collapse.in {
   .input-group-lg > .input-group-btn > .input-group-addon.btn,
   .input-group-lg > .input-group-btn > .input-group-addon.list-button-edit,
   .input-group-lg > .input-group-btn > .input-group-addon.list-button-save,
-  .input-group-lg > .input-group-btn > .input-group-addon.list-button-new,
-  .input-group-lg > .input-group-btn > .input-group-addon.list-button-delete {
+  .input-group-lg > .input-group-btn > .input-group-addon.task-button-new,
+  .input-group-lg > .input-group-btn > .input-group-addon.task-button-delete {
     padding: 10px 16px;
     font-size: 18px;
     border-radius: 6px; }
@@ -3688,24 +3688,24 @@ tbody.collapse.in {
 .input-group-btn:first-child > .btn,
 .input-group-btn:first-child > .list-button-edit,
 .input-group-btn:first-child > .list-button-save,
-.input-group-btn:first-child > .list-button-new,
-.input-group-btn:first-child > .list-button-delete,
+.input-group-btn:first-child > .task-button-new,
+.input-group-btn:first-child > .task-button-delete,
 .input-group-btn:first-child > .btn-group > .btn,
 .input-group-btn:first-child > .btn-group > .list-button-edit,
 .input-group-btn:first-child > .btn-group > .list-button-save,
-.input-group-btn:first-child > .btn-group > .list-button-new,
-.input-group-btn:first-child > .btn-group > .list-button-delete,
+.input-group-btn:first-child > .btn-group > .task-button-new,
+.input-group-btn:first-child > .btn-group > .task-button-delete,
 .input-group-btn:first-child > .dropdown-toggle,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:last-child > .list-button-edit:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:last-child > .list-button-save:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > .list-button-new:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > .list-button-delete:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .task-button-new:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .task-button-delete:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:last-child > .btn-group:not(:last-child) > .btn,
 .input-group-btn:last-child > .btn-group:not(:last-child) > .list-button-edit,
 .input-group-btn:last-child > .btn-group:not(:last-child) > .list-button-save,
-.input-group-btn:last-child > .btn-group:not(:last-child) > .list-button-new,
-.input-group-btn:last-child > .btn-group:not(:last-child) > .list-button-delete {
+.input-group-btn:last-child > .btn-group:not(:last-child) > .task-button-new,
+.input-group-btn:last-child > .btn-group:not(:last-child) > .task-button-delete {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
@@ -3717,24 +3717,24 @@ tbody.collapse.in {
 .input-group-btn:last-child > .btn,
 .input-group-btn:last-child > .list-button-edit,
 .input-group-btn:last-child > .list-button-save,
-.input-group-btn:last-child > .list-button-new,
-.input-group-btn:last-child > .list-button-delete,
+.input-group-btn:last-child > .task-button-new,
+.input-group-btn:last-child > .task-button-delete,
 .input-group-btn:last-child > .btn-group > .btn,
 .input-group-btn:last-child > .btn-group > .list-button-edit,
 .input-group-btn:last-child > .btn-group > .list-button-save,
-.input-group-btn:last-child > .btn-group > .list-button-new,
-.input-group-btn:last-child > .btn-group > .list-button-delete,
+.input-group-btn:last-child > .btn-group > .task-button-new,
+.input-group-btn:last-child > .btn-group > .task-button-delete,
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child),
 .input-group-btn:first-child > .list-button-edit:not(:first-child),
 .input-group-btn:first-child > .list-button-save:not(:first-child),
-.input-group-btn:first-child > .list-button-new:not(:first-child),
-.input-group-btn:first-child > .list-button-delete:not(:first-child),
+.input-group-btn:first-child > .task-button-new:not(:first-child),
+.input-group-btn:first-child > .task-button-delete:not(:first-child),
 .input-group-btn:first-child > .btn-group:not(:first-child) > .btn,
 .input-group-btn:first-child > .btn-group:not(:first-child) > .list-button-edit,
 .input-group-btn:first-child > .btn-group:not(:first-child) > .list-button-save,
-.input-group-btn:first-child > .btn-group:not(:first-child) > .list-button-new,
-.input-group-btn:first-child > .btn-group:not(:first-child) > .list-button-delete {
+.input-group-btn:first-child > .btn-group:not(:first-child) > .task-button-new,
+.input-group-btn:first-child > .btn-group:not(:first-child) > .task-button-delete {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3745,16 +3745,16 @@ tbody.collapse.in {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
-  .input-group-btn > .btn, .input-group-btn > .list-button-edit, .input-group-btn > .list-button-save, .input-group-btn > .list-button-new, .input-group-btn > .list-button-delete {
+  .input-group-btn > .btn, .input-group-btn > .list-button-edit, .input-group-btn > .list-button-save, .input-group-btn > .task-button-new, .input-group-btn > .task-button-delete {
     position: relative; }
-    .input-group-btn > .btn + .btn, .input-group-btn > .list-button-edit + .btn, .input-group-btn > .list-button-save + .btn, .input-group-btn > .list-button-new + .btn, .input-group-btn > .list-button-delete + .btn, .input-group-btn > .btn + .list-button-edit, .input-group-btn > .list-button-edit + .list-button-edit, .input-group-btn > .list-button-save + .list-button-edit, .input-group-btn > .list-button-new + .list-button-edit, .input-group-btn > .list-button-delete + .list-button-edit, .input-group-btn > .btn + .list-button-save, .input-group-btn > .list-button-edit + .list-button-save, .input-group-btn > .list-button-save + .list-button-save, .input-group-btn > .list-button-new + .list-button-save, .input-group-btn > .list-button-delete + .list-button-save, .input-group-btn > .btn + .list-button-new, .input-group-btn > .list-button-edit + .list-button-new, .input-group-btn > .list-button-save + .list-button-new, .input-group-btn > .list-button-new + .list-button-new, .input-group-btn > .list-button-delete + .list-button-new, .input-group-btn > .btn + .list-button-delete, .input-group-btn > .list-button-edit + .list-button-delete, .input-group-btn > .list-button-save + .list-button-delete, .input-group-btn > .list-button-new + .list-button-delete, .input-group-btn > .list-button-delete + .list-button-delete {
+    .input-group-btn > .btn + .btn, .input-group-btn > .list-button-edit + .btn, .input-group-btn > .list-button-save + .btn, .input-group-btn > .task-button-new + .btn, .input-group-btn > .task-button-delete + .btn, .input-group-btn > .btn + .list-button-edit, .input-group-btn > .list-button-edit + .list-button-edit, .input-group-btn > .list-button-save + .list-button-edit, .input-group-btn > .task-button-new + .list-button-edit, .input-group-btn > .task-button-delete + .list-button-edit, .input-group-btn > .btn + .list-button-save, .input-group-btn > .list-button-edit + .list-button-save, .input-group-btn > .list-button-save + .list-button-save, .input-group-btn > .task-button-new + .list-button-save, .input-group-btn > .task-button-delete + .list-button-save, .input-group-btn > .btn + .task-button-new, .input-group-btn > .list-button-edit + .task-button-new, .input-group-btn > .list-button-save + .task-button-new, .input-group-btn > .task-button-new + .task-button-new, .input-group-btn > .task-button-delete + .task-button-new, .input-group-btn > .btn + .task-button-delete, .input-group-btn > .list-button-edit + .task-button-delete, .input-group-btn > .list-button-save + .task-button-delete, .input-group-btn > .task-button-new + .task-button-delete, .input-group-btn > .task-button-delete + .task-button-delete {
       margin-left: -1px; }
-    .input-group-btn > .btn:hover, .input-group-btn > .list-button-edit:hover, .input-group-btn > .list-button-save:hover, .input-group-btn > .list-button-new:hover, .input-group-btn > .list-button-delete:hover, .input-group-btn > .btn:focus, .input-group-btn > .list-button-edit:focus, .input-group-btn > .list-button-save:focus, .input-group-btn > .list-button-new:focus, .input-group-btn > .list-button-delete:focus, .input-group-btn > .btn:active, .input-group-btn > .list-button-edit:active, .input-group-btn > .list-button-save:active, .input-group-btn > .list-button-new:active, .input-group-btn > .list-button-delete:active {
+    .input-group-btn > .btn:hover, .input-group-btn > .list-button-edit:hover, .input-group-btn > .list-button-save:hover, .input-group-btn > .task-button-new:hover, .input-group-btn > .task-button-delete:hover, .input-group-btn > .btn:focus, .input-group-btn > .list-button-edit:focus, .input-group-btn > .list-button-save:focus, .input-group-btn > .task-button-new:focus, .input-group-btn > .task-button-delete:focus, .input-group-btn > .btn:active, .input-group-btn > .list-button-edit:active, .input-group-btn > .list-button-save:active, .input-group-btn > .task-button-new:active, .input-group-btn > .task-button-delete:active {
       z-index: 2; }
-  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .list-button-edit, .input-group-btn:first-child > .list-button-save, .input-group-btn:first-child > .list-button-new, .input-group-btn:first-child > .list-button-delete,
+  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .list-button-edit, .input-group-btn:first-child > .list-button-save, .input-group-btn:first-child > .task-button-new, .input-group-btn:first-child > .task-button-delete,
   .input-group-btn:first-child > .btn-group {
     margin-right: -1px; }
-  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .list-button-edit, .input-group-btn:last-child > .list-button-save, .input-group-btn:last-child > .list-button-new, .input-group-btn:last-child > .list-button-delete,
+  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .list-button-edit, .input-group-btn:last-child > .list-button-save, .input-group-btn:last-child > .task-button-new, .input-group-btn:last-child > .task-button-delete,
   .input-group-btn:last-child > .btn-group {
     z-index: 2;
     margin-left: -1px; }
@@ -4089,7 +4089,7 @@ tbody.collapse.in {
       vertical-align: middle; }
     .navbar-form .radio,
     .navbar-form .checkbox,
-    .navbar-form .task-list-items tr .task-completion, .task-list-items tr
+    .navbar-form .list-items tr .task-completion, .list-items tr
     .navbar-form .task-completion {
       display: inline-block;
       margin-top: 0;
@@ -4097,12 +4097,12 @@ tbody.collapse.in {
       vertical-align: middle; }
       .navbar-form .radio label,
       .navbar-form .checkbox label,
-      .navbar-form .task-list-items tr .task-completion label, .task-list-items tr
+      .navbar-form .list-items tr .task-completion label, .list-items tr
       .navbar-form .task-completion label {
         padding-left: 0; }
     .navbar-form .radio input[type="radio"],
     .navbar-form .checkbox input[type="checkbox"],
-    .navbar-form .task-list-items tr .task-completion input[type="checkbox"], .task-list-items tr
+    .navbar-form .list-items tr .task-completion input[type="checkbox"], .list-items tr
     .navbar-form .task-completion input[type="checkbox"] {
       position: relative;
       margin-left: 0; }
@@ -4139,10 +4139,10 @@ tbody.collapse.in {
 .navbar-btn {
   margin-top: 8px;
   margin-bottom: 8px; }
-  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .navbar-btn.list-button-edit, .navbar-btn.list-button-save, .navbar-btn.list-button-new, .navbar-btn.list-button-delete {
+  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .navbar-btn.list-button-edit, .navbar-btn.list-button-save, .navbar-btn.task-button-new, .navbar-btn.task-button-delete {
     margin-top: 10px;
     margin-bottom: 10px; }
-  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .navbar-btn.list-button-edit, .btn-group-xs > .navbar-btn.list-button-save, .btn-group-xs > .navbar-btn.list-button-new, .btn-group-xs > .navbar-btn.list-button-delete {
+  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .navbar-btn.list-button-edit, .btn-group-xs > .navbar-btn.list-button-save, .btn-group-xs > .navbar-btn.task-button-new, .btn-group-xs > .navbar-btn.task-button-delete {
     margin-top: 14px;
     margin-bottom: 14px; }
 
@@ -4213,17 +4213,17 @@ tbody.collapse.in {
     color: #777; }
     .navbar-default .navbar-link:hover {
       color: #333; }
-  .navbar-default .btn-link, .navbar-default .list-button-new, .navbar-default .list-button-delete {
+  .navbar-default .btn-link, .navbar-default .task-button-new, .navbar-default .task-button-delete {
     color: #777; }
-    .navbar-default .btn-link:hover, .navbar-default .list-button-new:hover, .navbar-default .list-button-delete:hover, .navbar-default .btn-link:focus, .navbar-default .list-button-new:focus, .navbar-default .list-button-delete:focus {
+    .navbar-default .btn-link:hover, .navbar-default .task-button-new:hover, .navbar-default .task-button-delete:hover, .navbar-default .btn-link:focus, .navbar-default .task-button-new:focus, .navbar-default .task-button-delete:focus {
       color: #333; }
-    .navbar-default .btn-link[disabled]:hover, .navbar-default [disabled].list-button-new:hover, .navbar-default [disabled].list-button-delete:hover, .navbar-default .btn-link[disabled]:focus, .navbar-default [disabled].list-button-new:focus, .navbar-default [disabled].list-button-delete:focus,
+    .navbar-default .btn-link[disabled]:hover, .navbar-default [disabled].task-button-new:hover, .navbar-default [disabled].task-button-delete:hover, .navbar-default .btn-link[disabled]:focus, .navbar-default [disabled].task-button-new:focus, .navbar-default [disabled].task-button-delete:focus,
     fieldset[disabled] .navbar-default .btn-link:hover,
-    fieldset[disabled] .navbar-default .list-button-new:hover,
-    fieldset[disabled] .navbar-default .list-button-delete:hover,
+    fieldset[disabled] .navbar-default .task-button-new:hover,
+    fieldset[disabled] .navbar-default .task-button-delete:hover,
     fieldset[disabled] .navbar-default .btn-link:focus,
-    fieldset[disabled] .navbar-default .list-button-new:focus,
-    fieldset[disabled] .navbar-default .list-button-delete:focus {
+    fieldset[disabled] .navbar-default .task-button-new:focus,
+    fieldset[disabled] .navbar-default .task-button-delete:focus {
       color: #ccc; }
 
 .navbar-inverse {
@@ -4279,17 +4279,17 @@ tbody.collapse.in {
     color: #9d9d9d; }
     .navbar-inverse .navbar-link:hover {
       color: #fff; }
-  .navbar-inverse .btn-link, .navbar-inverse .list-button-new, .navbar-inverse .list-button-delete {
+  .navbar-inverse .btn-link, .navbar-inverse .task-button-new, .navbar-inverse .task-button-delete {
     color: #9d9d9d; }
-    .navbar-inverse .btn-link:hover, .navbar-inverse .list-button-new:hover, .navbar-inverse .list-button-delete:hover, .navbar-inverse .btn-link:focus, .navbar-inverse .list-button-new:focus, .navbar-inverse .list-button-delete:focus {
+    .navbar-inverse .btn-link:hover, .navbar-inverse .task-button-new:hover, .navbar-inverse .task-button-delete:hover, .navbar-inverse .btn-link:focus, .navbar-inverse .task-button-new:focus, .navbar-inverse .task-button-delete:focus {
       color: #fff; }
-    .navbar-inverse .btn-link[disabled]:hover, .navbar-inverse [disabled].list-button-new:hover, .navbar-inverse [disabled].list-button-delete:hover, .navbar-inverse .btn-link[disabled]:focus, .navbar-inverse [disabled].list-button-new:focus, .navbar-inverse [disabled].list-button-delete:focus,
+    .navbar-inverse .btn-link[disabled]:hover, .navbar-inverse [disabled].task-button-new:hover, .navbar-inverse [disabled].task-button-delete:hover, .navbar-inverse .btn-link[disabled]:focus, .navbar-inverse [disabled].task-button-new:focus, .navbar-inverse [disabled].task-button-delete:focus,
     fieldset[disabled] .navbar-inverse .btn-link:hover,
-    fieldset[disabled] .navbar-inverse .list-button-new:hover,
-    fieldset[disabled] .navbar-inverse .list-button-delete:hover,
+    fieldset[disabled] .navbar-inverse .task-button-new:hover,
+    fieldset[disabled] .navbar-inverse .task-button-delete:hover,
     fieldset[disabled] .navbar-inverse .btn-link:focus,
-    fieldset[disabled] .navbar-inverse .list-button-new:focus,
-    fieldset[disabled] .navbar-inverse .list-button-delete:focus {
+    fieldset[disabled] .navbar-inverse .task-button-new:focus,
+    fieldset[disabled] .navbar-inverse .task-button-delete:focus {
       color: #444; }
 
 .breadcrumb {
@@ -4443,7 +4443,7 @@ tbody.collapse.in {
   border-radius: .25em; }
   .label:empty {
     display: none; }
-  .btn .label, .list-button-edit .label, .list-button-save .label, .list-button-new .label, .list-button-delete .label {
+  .btn .label, .list-button-edit .label, .list-button-save .label, .task-button-new .label, .task-button-delete .label {
     position: relative;
     top: -1px; }
 
@@ -4497,15 +4497,15 @@ a.label:hover, a.label:focus {
   border-radius: 10px; }
   .badge:empty {
     display: none; }
-  .btn .badge, .list-button-edit .badge, .list-button-save .badge, .list-button-new .badge, .list-button-delete .badge {
+  .btn .badge, .list-button-edit .badge, .list-button-save .badge, .task-button-new .badge, .task-button-delete .badge {
     position: relative;
     top: -1px; }
-  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .list-button-edit .badge, .btn-group-xs > .list-button-save .badge, .btn-group-xs > .list-button-new .badge, .btn-group-xs > .list-button-delete .badge,
+  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .list-button-edit .badge, .btn-group-xs > .list-button-save .badge, .btn-group-xs > .task-button-new .badge, .btn-group-xs > .task-button-delete .badge,
   .btn-group-xs > .btn .badge,
   .btn-group-xs > .list-button-edit .badge,
   .btn-group-xs > .list-button-save .badge,
-  .btn-group-xs > .list-button-new .badge,
-  .btn-group-xs > .list-button-delete .badge {
+  .btn-group-xs > .task-button-new .badge,
+  .btn-group-xs > .task-button-delete .badge {
     top: 0;
     padding: 1px 5px; }
   .list-group-item.active > .badge,
@@ -5002,124 +5002,124 @@ button.list-group-item-danger {
 .list-group + .panel-footer {
   border-top-width: 0; }
 
-.panel > .table, .list-panel > .table, .panel > .task-list-items, .list-panel > .task-list-items,
+.panel > .table, .list-panel > .table, .panel > .list-items, .list-panel > .list-items,
 .panel > .table-responsive > .table, .list-panel > .table-responsive > .table,
-.panel > .table-responsive > .task-list-items, .list-panel > .table-responsive > .task-list-items,
+.panel > .table-responsive > .list-items, .list-panel > .table-responsive > .list-items,
 .panel > .panel-collapse > .table, .list-panel > .panel-collapse > .table,
-.panel > .panel-collapse > .task-list-items, .list-panel > .panel-collapse > .task-list-items {
+.panel > .panel-collapse > .list-items, .list-panel > .panel-collapse > .list-items {
   margin-bottom: 0; }
-  .panel > .table caption, .list-panel > .table caption, .panel > .task-list-items caption, .list-panel > .task-list-items caption,
+  .panel > .table caption, .list-panel > .table caption, .panel > .list-items caption, .list-panel > .list-items caption,
   .panel > .table-responsive > .table caption, .list-panel > .table-responsive > .table caption,
-  .panel > .table-responsive > .task-list-items caption, .list-panel > .table-responsive > .task-list-items caption,
+  .panel > .table-responsive > .list-items caption, .list-panel > .table-responsive > .list-items caption,
   .panel > .panel-collapse > .table caption, .list-panel > .panel-collapse > .table caption,
-  .panel > .panel-collapse > .task-list-items caption, .list-panel > .panel-collapse > .task-list-items caption {
+  .panel > .panel-collapse > .list-items caption, .list-panel > .panel-collapse > .list-items caption {
     padding-left: 15px;
     padding-right: 15px; }
 
-.panel > .table:first-child, .list-panel > .table:first-child, .panel > .task-list-items:first-child, .list-panel > .task-list-items:first-child,
+.panel > .table:first-child, .list-panel > .table:first-child, .panel > .list-items:first-child, .list-panel > .list-items:first-child,
 .panel > .table-responsive:first-child > .table:first-child, .list-panel > .table-responsive:first-child > .table:first-child,
-.panel > .table-responsive:first-child > .task-list-items:first-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child {
+.panel > .table-responsive:first-child > .list-items:first-child, .list-panel > .table-responsive:first-child > .list-items:first-child {
   border-top-right-radius: 3px;
   border-top-left-radius: 3px; }
-  .panel > .table:first-child > thead:first-child > tr:first-child, .list-panel > .table:first-child > thead:first-child > tr:first-child, .panel > .task-list-items:first-child > thead:first-child > tr:first-child, .list-panel > .task-list-items:first-child > thead:first-child > tr:first-child,
+  .panel > .table:first-child > thead:first-child > tr:first-child, .list-panel > .table:first-child > thead:first-child > tr:first-child, .panel > .list-items:first-child > thead:first-child > tr:first-child, .list-panel > .list-items:first-child > thead:first-child > tr:first-child,
   .panel > .table:first-child > tbody:first-child > tr:first-child, .list-panel > .table:first-child > tbody:first-child > tr:first-child,
-  .panel > .task-list-items:first-child > tbody:first-child > tr:first-child, .list-panel > .task-list-items:first-child > tbody:first-child > tr:first-child,
+  .panel > .list-items:first-child > tbody:first-child > tr:first-child, .list-panel > .list-items:first-child > tbody:first-child > tr:first-child,
   .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child, .list-panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child,
-  .panel > .table-responsive:first-child > .task-list-items:first-child > thead:first-child > tr:first-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child > thead:first-child > tr:first-child,
+  .panel > .table-responsive:first-child > .list-items:first-child > thead:first-child > tr:first-child, .list-panel > .table-responsive:first-child > .list-items:first-child > thead:first-child > tr:first-child,
   .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child, .list-panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child,
-  .panel > .table-responsive:first-child > .task-list-items:first-child > tbody:first-child > tr:first-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child > tbody:first-child > tr:first-child {
+  .panel > .table-responsive:first-child > .list-items:first-child > tbody:first-child > tr:first-child, .list-panel > .table-responsive:first-child > .list-items:first-child > tbody:first-child > tr:first-child {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px; }
-    .panel > .table:first-child > thead:first-child > tr:first-child td:first-child, .list-panel > .table:first-child > thead:first-child > tr:first-child td:first-child, .panel > .task-list-items:first-child > thead:first-child > tr:first-child td:first-child, .list-panel > .task-list-items:first-child > thead:first-child > tr:first-child td:first-child,
+    .panel > .table:first-child > thead:first-child > tr:first-child td:first-child, .list-panel > .table:first-child > thead:first-child > tr:first-child td:first-child, .panel > .list-items:first-child > thead:first-child > tr:first-child td:first-child, .list-panel > .list-items:first-child > thead:first-child > tr:first-child td:first-child,
     .panel > .table:first-child > thead:first-child > tr:first-child th:first-child, .list-panel > .table:first-child > thead:first-child > tr:first-child th:first-child,
-    .panel > .task-list-items:first-child > thead:first-child > tr:first-child th:first-child, .list-panel > .task-list-items:first-child > thead:first-child > tr:first-child th:first-child,
+    .panel > .list-items:first-child > thead:first-child > tr:first-child th:first-child, .list-panel > .list-items:first-child > thead:first-child > tr:first-child th:first-child,
     .panel > .table:first-child > tbody:first-child > tr:first-child td:first-child, .list-panel > .table:first-child > tbody:first-child > tr:first-child td:first-child,
-    .panel > .task-list-items:first-child > tbody:first-child > tr:first-child td:first-child, .list-panel > .task-list-items:first-child > tbody:first-child > tr:first-child td:first-child,
+    .panel > .list-items:first-child > tbody:first-child > tr:first-child td:first-child, .list-panel > .list-items:first-child > tbody:first-child > tr:first-child td:first-child,
     .panel > .table:first-child > tbody:first-child > tr:first-child th:first-child, .list-panel > .table:first-child > tbody:first-child > tr:first-child th:first-child,
-    .panel > .task-list-items:first-child > tbody:first-child > tr:first-child th:first-child, .list-panel > .task-list-items:first-child > tbody:first-child > tr:first-child th:first-child,
+    .panel > .list-items:first-child > tbody:first-child > tr:first-child th:first-child, .list-panel > .list-items:first-child > tbody:first-child > tr:first-child th:first-child,
     .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child, .list-panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
-    .panel > .table-responsive:first-child > .task-list-items:first-child > thead:first-child > tr:first-child td:first-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child > thead:first-child > tr:first-child td:first-child,
+    .panel > .table-responsive:first-child > .list-items:first-child > thead:first-child > tr:first-child td:first-child, .list-panel > .table-responsive:first-child > .list-items:first-child > thead:first-child > tr:first-child td:first-child,
     .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child, .list-panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
-    .panel > .table-responsive:first-child > .task-list-items:first-child > thead:first-child > tr:first-child th:first-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child > thead:first-child > tr:first-child th:first-child,
+    .panel > .table-responsive:first-child > .list-items:first-child > thead:first-child > tr:first-child th:first-child, .list-panel > .table-responsive:first-child > .list-items:first-child > thead:first-child > tr:first-child th:first-child,
     .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child, .list-panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
-    .panel > .table-responsive:first-child > .task-list-items:first-child > tbody:first-child > tr:first-child td:first-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child > tbody:first-child > tr:first-child td:first-child,
+    .panel > .table-responsive:first-child > .list-items:first-child > tbody:first-child > tr:first-child td:first-child, .list-panel > .table-responsive:first-child > .list-items:first-child > tbody:first-child > tr:first-child td:first-child,
     .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child, .list-panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child,
-    .panel > .table-responsive:first-child > .task-list-items:first-child > tbody:first-child > tr:first-child th:first-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child > tbody:first-child > tr:first-child th:first-child {
+    .panel > .table-responsive:first-child > .list-items:first-child > tbody:first-child > tr:first-child th:first-child, .list-panel > .table-responsive:first-child > .list-items:first-child > tbody:first-child > tr:first-child th:first-child {
       border-top-left-radius: 3px; }
-    .panel > .table:first-child > thead:first-child > tr:first-child td:last-child, .list-panel > .table:first-child > thead:first-child > tr:first-child td:last-child, .panel > .task-list-items:first-child > thead:first-child > tr:first-child td:last-child, .list-panel > .task-list-items:first-child > thead:first-child > tr:first-child td:last-child,
+    .panel > .table:first-child > thead:first-child > tr:first-child td:last-child, .list-panel > .table:first-child > thead:first-child > tr:first-child td:last-child, .panel > .list-items:first-child > thead:first-child > tr:first-child td:last-child, .list-panel > .list-items:first-child > thead:first-child > tr:first-child td:last-child,
     .panel > .table:first-child > thead:first-child > tr:first-child th:last-child, .list-panel > .table:first-child > thead:first-child > tr:first-child th:last-child,
-    .panel > .task-list-items:first-child > thead:first-child > tr:first-child th:last-child, .list-panel > .task-list-items:first-child > thead:first-child > tr:first-child th:last-child,
+    .panel > .list-items:first-child > thead:first-child > tr:first-child th:last-child, .list-panel > .list-items:first-child > thead:first-child > tr:first-child th:last-child,
     .panel > .table:first-child > tbody:first-child > tr:first-child td:last-child, .list-panel > .table:first-child > tbody:first-child > tr:first-child td:last-child,
-    .panel > .task-list-items:first-child > tbody:first-child > tr:first-child td:last-child, .list-panel > .task-list-items:first-child > tbody:first-child > tr:first-child td:last-child,
+    .panel > .list-items:first-child > tbody:first-child > tr:first-child td:last-child, .list-panel > .list-items:first-child > tbody:first-child > tr:first-child td:last-child,
     .panel > .table:first-child > tbody:first-child > tr:first-child th:last-child, .list-panel > .table:first-child > tbody:first-child > tr:first-child th:last-child,
-    .panel > .task-list-items:first-child > tbody:first-child > tr:first-child th:last-child, .list-panel > .task-list-items:first-child > tbody:first-child > tr:first-child th:last-child,
+    .panel > .list-items:first-child > tbody:first-child > tr:first-child th:last-child, .list-panel > .list-items:first-child > tbody:first-child > tr:first-child th:last-child,
     .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child, .list-panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
-    .panel > .table-responsive:first-child > .task-list-items:first-child > thead:first-child > tr:first-child td:last-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child > thead:first-child > tr:first-child td:last-child,
+    .panel > .table-responsive:first-child > .list-items:first-child > thead:first-child > tr:first-child td:last-child, .list-panel > .table-responsive:first-child > .list-items:first-child > thead:first-child > tr:first-child td:last-child,
     .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child, .list-panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
-    .panel > .table-responsive:first-child > .task-list-items:first-child > thead:first-child > tr:first-child th:last-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child > thead:first-child > tr:first-child th:last-child,
+    .panel > .table-responsive:first-child > .list-items:first-child > thead:first-child > tr:first-child th:last-child, .list-panel > .table-responsive:first-child > .list-items:first-child > thead:first-child > tr:first-child th:last-child,
     .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child, .list-panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
-    .panel > .table-responsive:first-child > .task-list-items:first-child > tbody:first-child > tr:first-child td:last-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child > tbody:first-child > tr:first-child td:last-child,
+    .panel > .table-responsive:first-child > .list-items:first-child > tbody:first-child > tr:first-child td:last-child, .list-panel > .table-responsive:first-child > .list-items:first-child > tbody:first-child > tr:first-child td:last-child,
     .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child, .list-panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child,
-    .panel > .table-responsive:first-child > .task-list-items:first-child > tbody:first-child > tr:first-child th:last-child, .list-panel > .table-responsive:first-child > .task-list-items:first-child > tbody:first-child > tr:first-child th:last-child {
+    .panel > .table-responsive:first-child > .list-items:first-child > tbody:first-child > tr:first-child th:last-child, .list-panel > .table-responsive:first-child > .list-items:first-child > tbody:first-child > tr:first-child th:last-child {
       border-top-right-radius: 3px; }
 
-.panel > .table:last-child, .list-panel > .table:last-child, .panel > .task-list-items:last-child, .list-panel > .task-list-items:last-child,
+.panel > .table:last-child, .list-panel > .table:last-child, .panel > .list-items:last-child, .list-panel > .list-items:last-child,
 .panel > .table-responsive:last-child > .table:last-child, .list-panel > .table-responsive:last-child > .table:last-child,
-.panel > .table-responsive:last-child > .task-list-items:last-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child {
+.panel > .table-responsive:last-child > .list-items:last-child, .list-panel > .table-responsive:last-child > .list-items:last-child {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px; }
-  .panel > .table:last-child > tbody:last-child > tr:last-child, .list-panel > .table:last-child > tbody:last-child > tr:last-child, .panel > .task-list-items:last-child > tbody:last-child > tr:last-child, .list-panel > .task-list-items:last-child > tbody:last-child > tr:last-child,
+  .panel > .table:last-child > tbody:last-child > tr:last-child, .list-panel > .table:last-child > tbody:last-child > tr:last-child, .panel > .list-items:last-child > tbody:last-child > tr:last-child, .list-panel > .list-items:last-child > tbody:last-child > tr:last-child,
   .panel > .table:last-child > tfoot:last-child > tr:last-child, .list-panel > .table:last-child > tfoot:last-child > tr:last-child,
-  .panel > .task-list-items:last-child > tfoot:last-child > tr:last-child, .list-panel > .task-list-items:last-child > tfoot:last-child > tr:last-child,
+  .panel > .list-items:last-child > tfoot:last-child > tr:last-child, .list-panel > .list-items:last-child > tfoot:last-child > tr:last-child,
   .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child, .list-panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child,
-  .panel > .table-responsive:last-child > .task-list-items:last-child > tbody:last-child > tr:last-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child > tbody:last-child > tr:last-child,
+  .panel > .table-responsive:last-child > .list-items:last-child > tbody:last-child > tr:last-child, .list-panel > .table-responsive:last-child > .list-items:last-child > tbody:last-child > tr:last-child,
   .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child, .list-panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child,
-  .panel > .table-responsive:last-child > .task-list-items:last-child > tfoot:last-child > tr:last-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child > tfoot:last-child > tr:last-child {
+  .panel > .table-responsive:last-child > .list-items:last-child > tfoot:last-child > tr:last-child, .list-panel > .table-responsive:last-child > .list-items:last-child > tfoot:last-child > tr:last-child {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px; }
-    .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child, .list-panel > .table:last-child > tbody:last-child > tr:last-child td:first-child, .panel > .task-list-items:last-child > tbody:last-child > tr:last-child td:first-child, .list-panel > .task-list-items:last-child > tbody:last-child > tr:last-child td:first-child,
+    .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child, .list-panel > .table:last-child > tbody:last-child > tr:last-child td:first-child, .panel > .list-items:last-child > tbody:last-child > tr:last-child td:first-child, .list-panel > .list-items:last-child > tbody:last-child > tr:last-child td:first-child,
     .panel > .table:last-child > tbody:last-child > tr:last-child th:first-child, .list-panel > .table:last-child > tbody:last-child > tr:last-child th:first-child,
-    .panel > .task-list-items:last-child > tbody:last-child > tr:last-child th:first-child, .list-panel > .task-list-items:last-child > tbody:last-child > tr:last-child th:first-child,
+    .panel > .list-items:last-child > tbody:last-child > tr:last-child th:first-child, .list-panel > .list-items:last-child > tbody:last-child > tr:last-child th:first-child,
     .panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child, .list-panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
-    .panel > .task-list-items:last-child > tfoot:last-child > tr:last-child td:first-child, .list-panel > .task-list-items:last-child > tfoot:last-child > tr:last-child td:first-child,
+    .panel > .list-items:last-child > tfoot:last-child > tr:last-child td:first-child, .list-panel > .list-items:last-child > tfoot:last-child > tr:last-child td:first-child,
     .panel > .table:last-child > tfoot:last-child > tr:last-child th:first-child, .list-panel > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
-    .panel > .task-list-items:last-child > tfoot:last-child > tr:last-child th:first-child, .list-panel > .task-list-items:last-child > tfoot:last-child > tr:last-child th:first-child,
+    .panel > .list-items:last-child > tfoot:last-child > tr:last-child th:first-child, .list-panel > .list-items:last-child > tfoot:last-child > tr:last-child th:first-child,
     .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child, .list-panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
-    .panel > .table-responsive:last-child > .task-list-items:last-child > tbody:last-child > tr:last-child td:first-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child > tbody:last-child > tr:last-child td:first-child,
+    .panel > .table-responsive:last-child > .list-items:last-child > tbody:last-child > tr:last-child td:first-child, .list-panel > .table-responsive:last-child > .list-items:last-child > tbody:last-child > tr:last-child td:first-child,
     .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child, .list-panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
-    .panel > .table-responsive:last-child > .task-list-items:last-child > tbody:last-child > tr:last-child th:first-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child > tbody:last-child > tr:last-child th:first-child,
+    .panel > .table-responsive:last-child > .list-items:last-child > tbody:last-child > tr:last-child th:first-child, .list-panel > .table-responsive:last-child > .list-items:last-child > tbody:last-child > tr:last-child th:first-child,
     .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child, .list-panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
-    .panel > .table-responsive:last-child > .task-list-items:last-child > tfoot:last-child > tr:last-child td:first-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child > tfoot:last-child > tr:last-child td:first-child,
+    .panel > .table-responsive:last-child > .list-items:last-child > tfoot:last-child > tr:last-child td:first-child, .list-panel > .table-responsive:last-child > .list-items:last-child > tfoot:last-child > tr:last-child td:first-child,
     .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child, .list-panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
-    .panel > .table-responsive:last-child > .task-list-items:last-child > tfoot:last-child > tr:last-child th:first-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child > tfoot:last-child > tr:last-child th:first-child {
+    .panel > .table-responsive:last-child > .list-items:last-child > tfoot:last-child > tr:last-child th:first-child, .list-panel > .table-responsive:last-child > .list-items:last-child > tfoot:last-child > tr:last-child th:first-child {
       border-bottom-left-radius: 3px; }
-    .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child, .list-panel > .table:last-child > tbody:last-child > tr:last-child td:last-child, .panel > .task-list-items:last-child > tbody:last-child > tr:last-child td:last-child, .list-panel > .task-list-items:last-child > tbody:last-child > tr:last-child td:last-child,
+    .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child, .list-panel > .table:last-child > tbody:last-child > tr:last-child td:last-child, .panel > .list-items:last-child > tbody:last-child > tr:last-child td:last-child, .list-panel > .list-items:last-child > tbody:last-child > tr:last-child td:last-child,
     .panel > .table:last-child > tbody:last-child > tr:last-child th:last-child, .list-panel > .table:last-child > tbody:last-child > tr:last-child th:last-child,
-    .panel > .task-list-items:last-child > tbody:last-child > tr:last-child th:last-child, .list-panel > .task-list-items:last-child > tbody:last-child > tr:last-child th:last-child,
+    .panel > .list-items:last-child > tbody:last-child > tr:last-child th:last-child, .list-panel > .list-items:last-child > tbody:last-child > tr:last-child th:last-child,
     .panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child, .list-panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
-    .panel > .task-list-items:last-child > tfoot:last-child > tr:last-child td:last-child, .list-panel > .task-list-items:last-child > tfoot:last-child > tr:last-child td:last-child,
+    .panel > .list-items:last-child > tfoot:last-child > tr:last-child td:last-child, .list-panel > .list-items:last-child > tfoot:last-child > tr:last-child td:last-child,
     .panel > .table:last-child > tfoot:last-child > tr:last-child th:last-child, .list-panel > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
-    .panel > .task-list-items:last-child > tfoot:last-child > tr:last-child th:last-child, .list-panel > .task-list-items:last-child > tfoot:last-child > tr:last-child th:last-child,
+    .panel > .list-items:last-child > tfoot:last-child > tr:last-child th:last-child, .list-panel > .list-items:last-child > tfoot:last-child > tr:last-child th:last-child,
     .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child, .list-panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
-    .panel > .table-responsive:last-child > .task-list-items:last-child > tbody:last-child > tr:last-child td:last-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child > tbody:last-child > tr:last-child td:last-child,
+    .panel > .table-responsive:last-child > .list-items:last-child > tbody:last-child > tr:last-child td:last-child, .list-panel > .table-responsive:last-child > .list-items:last-child > tbody:last-child > tr:last-child td:last-child,
     .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child, .list-panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
-    .panel > .table-responsive:last-child > .task-list-items:last-child > tbody:last-child > tr:last-child th:last-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child > tbody:last-child > tr:last-child th:last-child,
+    .panel > .table-responsive:last-child > .list-items:last-child > tbody:last-child > tr:last-child th:last-child, .list-panel > .table-responsive:last-child > .list-items:last-child > tbody:last-child > tr:last-child th:last-child,
     .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child, .list-panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
-    .panel > .table-responsive:last-child > .task-list-items:last-child > tfoot:last-child > tr:last-child td:last-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child > tfoot:last-child > tr:last-child td:last-child,
+    .panel > .table-responsive:last-child > .list-items:last-child > tfoot:last-child > tr:last-child td:last-child, .list-panel > .table-responsive:last-child > .list-items:last-child > tfoot:last-child > tr:last-child td:last-child,
     .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child, .list-panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
-    .panel > .table-responsive:last-child > .task-list-items:last-child > tfoot:last-child > tr:last-child th:last-child, .list-panel > .table-responsive:last-child > .task-list-items:last-child > tfoot:last-child > tr:last-child th:last-child {
+    .panel > .table-responsive:last-child > .list-items:last-child > tfoot:last-child > tr:last-child th:last-child, .list-panel > .table-responsive:last-child > .list-items:last-child > tfoot:last-child > tr:last-child th:last-child {
       border-bottom-right-radius: 3px; }
 
-.panel > .panel-body + .table, .list-panel > .panel-body + .table, .panel > .panel-body + .task-list-items, .list-panel > .panel-body + .task-list-items,
+.panel > .panel-body + .table, .list-panel > .panel-body + .table, .panel > .panel-body + .list-items, .list-panel > .panel-body + .list-items,
 .panel > .panel-body + .table-responsive, .list-panel > .panel-body + .table-responsive,
 .panel > .table + .panel-body, .list-panel > .table + .panel-body,
-.panel > .task-list-items + .panel-body, .list-panel > .task-list-items + .panel-body,
+.panel > .list-items + .panel-body, .list-panel > .list-items + .panel-body,
 .panel > .table-responsive + .panel-body, .list-panel > .table-responsive + .panel-body {
   border-top: 1px solid #ddd; }
 
-.panel > .table > tbody:first-child > tr:first-child th, .list-panel > .table > tbody:first-child > tr:first-child th, .panel > .task-list-items > tbody:first-child > tr:first-child th, .list-panel > .task-list-items > tbody:first-child > tr:first-child th,
+.panel > .table > tbody:first-child > tr:first-child th, .list-panel > .table > tbody:first-child > tr:first-child th, .panel > .list-items > tbody:first-child > tr:first-child th, .list-panel > .list-items > tbody:first-child > tr:first-child th,
 .panel > .table > tbody:first-child > tr:first-child td, .list-panel > .table > tbody:first-child > tr:first-child td,
-.panel > .task-list-items > tbody:first-child > tr:first-child td, .list-panel > .task-list-items > tbody:first-child > tr:first-child td {
+.panel > .list-items > tbody:first-child > tr:first-child td, .list-panel > .list-items > tbody:first-child > tr:first-child td {
   border-top: 0; }
 
 .panel > .table-bordered, .list-panel > .table-bordered,
@@ -5437,10 +5437,10 @@ button.close {
     display: table; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn, .modal-footer .list-button-edit + .btn, .modal-footer .list-button-save + .btn, .modal-footer .list-button-new + .btn, .modal-footer .list-button-delete + .btn, .modal-footer .btn + .list-button-edit, .modal-footer .list-button-edit + .list-button-edit, .modal-footer .list-button-save + .list-button-edit, .modal-footer .list-button-new + .list-button-edit, .modal-footer .list-button-delete + .list-button-edit, .modal-footer .btn + .list-button-save, .modal-footer .list-button-edit + .list-button-save, .modal-footer .list-button-save + .list-button-save, .modal-footer .list-button-new + .list-button-save, .modal-footer .list-button-delete + .list-button-save, .modal-footer .btn + .list-button-new, .modal-footer .list-button-edit + .list-button-new, .modal-footer .list-button-save + .list-button-new, .modal-footer .list-button-new + .list-button-new, .modal-footer .list-button-delete + .list-button-new, .modal-footer .btn + .list-button-delete, .modal-footer .list-button-edit + .list-button-delete, .modal-footer .list-button-save + .list-button-delete, .modal-footer .list-button-new + .list-button-delete, .modal-footer .list-button-delete + .list-button-delete {
+  .modal-footer .btn + .btn, .modal-footer .list-button-edit + .btn, .modal-footer .list-button-save + .btn, .modal-footer .task-button-new + .btn, .modal-footer .task-button-delete + .btn, .modal-footer .btn + .list-button-edit, .modal-footer .list-button-edit + .list-button-edit, .modal-footer .list-button-save + .list-button-edit, .modal-footer .task-button-new + .list-button-edit, .modal-footer .task-button-delete + .list-button-edit, .modal-footer .btn + .list-button-save, .modal-footer .list-button-edit + .list-button-save, .modal-footer .list-button-save + .list-button-save, .modal-footer .task-button-new + .list-button-save, .modal-footer .task-button-delete + .list-button-save, .modal-footer .btn + .task-button-new, .modal-footer .list-button-edit + .task-button-new, .modal-footer .list-button-save + .task-button-new, .modal-footer .task-button-new + .task-button-new, .modal-footer .task-button-delete + .task-button-new, .modal-footer .btn + .task-button-delete, .modal-footer .list-button-edit + .task-button-delete, .modal-footer .list-button-save + .task-button-delete, .modal-footer .task-button-new + .task-button-delete, .modal-footer .task-button-delete + .task-button-delete {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .list-button-edit + .btn, .modal-footer .btn-group .list-button-save + .btn, .modal-footer .btn-group .list-button-new + .btn, .modal-footer .btn-group .list-button-delete + .btn, .modal-footer .btn-group .btn + .list-button-edit, .modal-footer .btn-group .list-button-edit + .list-button-edit, .modal-footer .btn-group .list-button-save + .list-button-edit, .modal-footer .btn-group .list-button-new + .list-button-edit, .modal-footer .btn-group .list-button-delete + .list-button-edit, .modal-footer .btn-group .btn + .list-button-save, .modal-footer .btn-group .list-button-edit + .list-button-save, .modal-footer .btn-group .list-button-save + .list-button-save, .modal-footer .btn-group .list-button-new + .list-button-save, .modal-footer .btn-group .list-button-delete + .list-button-save, .modal-footer .btn-group .btn + .list-button-new, .modal-footer .btn-group .list-button-edit + .list-button-new, .modal-footer .btn-group .list-button-save + .list-button-new, .modal-footer .btn-group .list-button-new + .list-button-new, .modal-footer .btn-group .list-button-delete + .list-button-new, .modal-footer .btn-group .btn + .list-button-delete, .modal-footer .btn-group .list-button-edit + .list-button-delete, .modal-footer .btn-group .list-button-save + .list-button-delete, .modal-footer .btn-group .list-button-new + .list-button-delete, .modal-footer .btn-group .list-button-delete + .list-button-delete {
+  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .list-button-edit + .btn, .modal-footer .btn-group .list-button-save + .btn, .modal-footer .btn-group .task-button-new + .btn, .modal-footer .btn-group .task-button-delete + .btn, .modal-footer .btn-group .btn + .list-button-edit, .modal-footer .btn-group .list-button-edit + .list-button-edit, .modal-footer .btn-group .list-button-save + .list-button-edit, .modal-footer .btn-group .task-button-new + .list-button-edit, .modal-footer .btn-group .task-button-delete + .list-button-edit, .modal-footer .btn-group .btn + .list-button-save, .modal-footer .btn-group .list-button-edit + .list-button-save, .modal-footer .btn-group .list-button-save + .list-button-save, .modal-footer .btn-group .task-button-new + .list-button-save, .modal-footer .btn-group .task-button-delete + .list-button-save, .modal-footer .btn-group .btn + .task-button-new, .modal-footer .btn-group .list-button-edit + .task-button-new, .modal-footer .btn-group .list-button-save + .task-button-new, .modal-footer .btn-group .task-button-new + .task-button-new, .modal-footer .btn-group .task-button-delete + .task-button-new, .modal-footer .btn-group .btn + .task-button-delete, .modal-footer .btn-group .list-button-edit + .task-button-delete, .modal-footer .btn-group .list-button-save + .task-button-delete, .modal-footer .btn-group .task-button-new + .task-button-delete, .modal-footer .btn-group .task-button-delete + .task-button-delete {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
@@ -5862,7 +5862,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-  .carousel-caption .btn, .carousel-caption .list-button-edit, .carousel-caption .list-button-save, .carousel-caption .list-button-new, .carousel-caption .list-button-delete {
+  .carousel-caption .btn, .carousel-caption .list-button-edit, .carousel-caption .list-button-save, .carousel-caption .task-button-new, .carousel-caption .task-button-delete {
     text-shadow: none; }
 
 @media screen and (min-width: 768px) {
@@ -6142,24 +6142,51 @@ button.close {
   -ms-flex-align: center;
   padding: 5px; }
 
-.task-list-items tr > td {
+.list-items tr > td {
   vertical-align: middle;
   width: 100%; }
-  .task-list-items tr > td:first-child, .task-list-items tr > td:last-child {
+  .list-items tr > td:first-child, .list-items tr > td:last-child {
     width: auto; }
-  .task-list-items tr > td:first-child {
+  .list-items tr > td:first-child {
     padding-right: 0; }
 
-.task-list-items .column-action {
-  cursor: pointer; }
-
-.task-list-items .task-completed {
+.list-items .task-completed {
   color: #777777;
   text-decoration: line-through; }
 
-.task-list-items tr .task-form .task-input {
+.list-items tr .task-form .task-input {
   background-color: transparent;
   border: 0; }
 
-.task-list-items tr .task-completion {
+.list-items tr .task-completion {
   margin: 0 0 0 4px; }
+
+.task-button-new {
+  color: inherit;
+  line-height: 1;
+  padding: 5px; }
+  .task-button-new:focus, .task-button-new:hover {
+    color: inherit; }
+
+.task-button-delete {
+  color: inherit;
+  line-height: 1;
+  padding: 5px; }
+  .task-button-delete:focus, .task-button-delete:hover {
+    color: inherit; }
+
+.task-delete,
+.task-delete *, .task-new,
+.task-new *, .task-toggle,
+.task-toggle * {
+  cursor: pointer; }
+
+.task-delete, .task-new {
+  opacity: 0.3;
+  filter: alpha(opacity=30); }
+  .task-delete:hover, .task-new:hover {
+    opacity: 1;
+    filter: alpha(opacity=100); }
+
+.task-delete:hover {
+  color: #d9534f; }
