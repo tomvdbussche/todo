@@ -19,10 +19,32 @@ mongoose.Promise = bluebird;
 dotenv.config();
 
 let dbHost = process.env.DB_HOST || 'localhost';
+let dbPort = process.env.DB_PORT || null;
 let dbName = process.env.DB_NAME || 'todo';
+let dbUser = process.env.DB_USER || null;
+let dbPass = process.env.DB_PASS || null;
+
+// Build mongodb URL
+let dbUrl = 'mongodb://';
+
+// Append user & password if needed
+if (dbUser !== null && dbPass !== null) {
+    dbUrl += dbUser + ':' + dbPass + '@';
+}
+
+// Append host
+dbUrl += dbHost;
+
+// Append port if set
+if (dbPort !== null) {
+    dbUrl += ':' + dbPort;
+}
+
+// Append name
+dbUrl += '/' + dbName;
 
 // Connect to database
-mongoose.connect('mongodb://' + dbHost + '/' + dbName);
+mongoose.connect(dbUrl);
 
 let app = express();
 
