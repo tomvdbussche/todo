@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "babel-node ./bin/www"
+    "start": "node_modules/.bin/babel-node ./bin/www"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
