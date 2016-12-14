@@ -1,9 +1,9 @@
-import mongoose from "mongoose";
+var mongoose = require("mongoose");
 
-let Schema = mongoose.Schema;
-let ObjectId = Schema.ObjectId;
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 
-let schema = new Schema({
+var schema = new Schema({
     name: String,
     completed: { type: Boolean, default: false},
     list: { type: ObjectId, ref: 'List'}
@@ -25,6 +25,6 @@ schema.pre('remove', function (next) {
     );
 });
 
-let Task = mongoose.model('Task', schema);
+var Task = mongoose.model('Task', schema);
 
-export default Task;
+module.exports = Task;

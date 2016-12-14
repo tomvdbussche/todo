@@ -1,9 +1,9 @@
-import mongoose from "mongoose";
+var mongoose = require("mongoose");
 
-let Schema = mongoose.Schema;
-let ObjectId = Schema.ObjectId;
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 
-let schema = new Schema({
+var schema = new Schema({
     title: String,
     tasks: [{type: ObjectId, ref: 'Task'}]
 });
@@ -18,6 +18,6 @@ let schema = new Schema({
 //
 // schema.set('toJSON', {virtuals: true});
 
-let List = mongoose.model('List', schema);
+var List = mongoose.model('List', schema);
 
-export default List;
+module.exports = List;

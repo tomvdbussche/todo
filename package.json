@@ -3,11 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/.bin/babel-node ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-latest": "^6.16.0",
     "bluebird": "^3.4.6",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
@@ -19,6 +17,8 @@
     "morgan": "~1.7.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
     "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^2.0.0",

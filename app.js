@@ -1,16 +1,16 @@
-import express from "express";
-import path from "path";
-import logger from "morgan";
-import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
-import indexRouter from "./routes/index";
-import apiRouter from "./routes/api";
-import usersRouter from "./routes/users";
-import listModel from "./models/list";
-import taskModel from "./models/task";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import bluebird from "bluebird";
+var express = require("express");
+var path = require("path");
+var logger = require("morgan");
+var cookieParser = require("cookie-parser");
+var bodyParser = require("body-parser");
+var indexRouter = require("./routes/index");
+var apiRouter = require("./routes/api");
+var usersRouter = require("./routes/users");
+var listModel = require("./models/list");
+var taskModel = require("./models/task");
+var mongoose = require("mongoose");
+var dotenv = require("dotenv");
+var bluebird = require("bluebird");
 
 // Add promises to mongoose
 mongoose.Promise = bluebird;
@@ -18,14 +18,14 @@ mongoose.Promise = bluebird;
 // Try to retrieve settings from .env
 dotenv.config();
 
-let dbHost = process.env.DB_HOST || 'localhost';
-let dbPort = process.env.DB_PORT || null;
-let dbName = process.env.DB_NAME || 'todo';
-let dbUser = process.env.DB_USER || null;
-let dbPass = process.env.DB_PASS || null;
+var dbHost = process.env.DB_HOST || 'localhost';
+var dbPort = process.env.DB_PORT || null;
+var dbName = process.env.DB_NAME || 'todo';
+var dbUser = process.env.DB_USER || null;
+var dbPass = process.env.DB_PASS || null;
 
 // Build mongodb URL
-let dbUrl = 'mongodb://';
+var dbUrl = 'mongodb://';
 
 // Append user & password if needed
 if (dbUser !== null && dbPass !== null) {
@@ -46,7 +46,7 @@ dbUrl += '/' + dbName;
 // Connect to database
 mongoose.connect(dbUrl);
 
-let app = express();
+var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -64,7 +64,7 @@ app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    let err = new Error('Not Found');
+    var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });

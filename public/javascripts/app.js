@@ -87,12 +87,6 @@ angular.module('app.services').factory('ListService', ['$http', function ($http)
 
     return service;
 }]);
-angular.module('app.core').controller('DashboardController', function ($scope, lists) {
-    var view = this;
-
-    view.lists = lists;
-});
-
 angular.module('app.core').controller('ListController', ['$scope', 'ListService', function ($scope, ListService) {
     var updateCount = function updateCount() {
         $scope.list.tasks.completed = $scope.list.tasks.filter(function (task) {
@@ -133,4 +127,9 @@ angular.module('app.core').directive('list', function () {
         templateUrl: 'components/list/listView.html',
         controller: 'ListController'
     };
+});
+angular.module('app.core').controller('DashboardController', function ($scope, lists) {
+    var view = this;
+
+    view.lists = lists;
 });

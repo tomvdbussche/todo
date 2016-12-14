@@ -1,8 +1,8 @@
-import express from "express";
-import List from "../models/list";
-import Task from "../models/task";
+var express = require("express");
+var router = express.Router();
 
-let router = express.Router();
+var List = require("../models/list");
+var Task = require("../models/task");
 
 // Lists
 router.route('/lists')
@@ -143,4 +143,4 @@ router.route('/task/:task')
         });
     });
 
-export default router;
+module.exports = router;
