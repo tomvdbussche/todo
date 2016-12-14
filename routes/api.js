@@ -21,7 +21,10 @@ router.post('/register', function(req, res, next){
     user.setPassword(req.body.password);
 
     user.save(function (err){
-        if(err){ return next(err); }
+        // if(err){ return next(err); }
+    if (err) {
+        return res.status(400).json({message: 'Username unavailable'});
+    }
 
         return res.json({token: user.generateJWT()})
     });

@@ -32,12 +32,22 @@ angular
                 $scope.name = '';
             }
         };
+        $scope.editList = function (title) {
+            $scope.title = title;
+            $scope.editing = true;
+        };
         $scope.renameList = function () {
-            if (!$scope.list.title || $scope.list.title === '') {
+            if (!$scope.title || $scope.title === '') {
                 return;
             } else {
-                console.log('Renaming list to ' + $scope.list.title);
+                console.log('Renaming list to ' + $scope.title);
+                $scope.list.title = $scope.title;
                 ListService.renameList($scope.list);
+                $scope.editing = false;
+            }
+        };
+        $scope.cancelEdit = function (event) {
+            if (event.keyCode === 27) {
                 $scope.editing = false;
             }
         };

@@ -1,9 +1,11 @@
 angular
     .module('app.core')
-    .controller('DashboardController', function ($uibModal, $scope, $state, lists, ListService, AuthService) {
+    .controller('DashboardController', function ($uibModal, $scope, $state, lists, username, ListService, AuthService) {
         let view = this;
 
         view.lists = lists;
+        view.username = username;
+
         view.modal = null;
 
         view.openNewListModal = function () {

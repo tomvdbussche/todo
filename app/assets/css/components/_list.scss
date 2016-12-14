@@ -26,6 +26,14 @@
   &-title {
     height: auto;
     padding-left: 10px;
+
+    &-form {
+      width: 100%;
+    }
+
+    &-input {
+      @extend .form-control;
+    }
   }
 
   &-buttons {
@@ -53,7 +61,6 @@
   @include tb-table(hover);
 
   tr > td {
-    vertical-align: middle;
     width: 100%;
 
     &:first-child,
@@ -69,6 +76,10 @@
   .task-completed {
     color: $gray-light;
     text-decoration: line-through;
+  }
+
+  .task-name-wrapper {
+    vertical-align: middle;
   }
 
   tr {

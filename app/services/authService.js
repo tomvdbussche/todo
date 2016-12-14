@@ -1,6 +1,6 @@
 angular.module('app.services')
     .factory('AuthService', ['$http', '$window', function ($http, $window) {
-        var auth = {};
+        let auth = {};
 
         auth.saveToken = function (token) {
             $window.localStorage['todo-auth-token'] = token;
@@ -11,10 +11,10 @@ angular.module('app.services')
         };
 
         auth.isLoggedIn = function () {
-            var token = auth.getToken();
+            let token = auth.getToken();
 
             if (token) {
-                var payload = JSON.parse($window.atob(token.split('.')[1]));
+                let payload = JSON.parse($window.atob(token.split('.')[1]));
 
                 return payload.exp > Date.now() / 1000;
             } else {
@@ -24,9 +24,8 @@ angular.module('app.services')
 
         auth.currentUser = function () {
             if (auth.isLoggedIn()) {
-                var token = auth.getToken();
-                var payload = JSON.parse($window.atob(token.split('.')[1]));
-
+                let token = auth.getToken();
+                let payload = JSON.parse($window.atob(token.split('.')[1]));
                 return payload.username;
             }
         };

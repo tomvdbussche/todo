@@ -10,6 +10,9 @@ angular
                 resolve: {
                     lists: function (ListService) {
                         return ListService.getAll();
+                    },
+                    username: function (AuthService) {
+                        return AuthService.currentUser();
                     }
                 }
             })
