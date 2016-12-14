@@ -1,6 +1,7 @@
 angular
     .module('app.core')
     .controller('ListController', ['$scope', 'ListService', function ($scope, ListService) {
+        $scope.editing = false;
         let updateCount = function () {
             $scope.list.tasks.completed = $scope.list.tasks.filter(function (task) {
                 return task.completed;
@@ -13,9 +14,9 @@ angular
                     updateCount();
                 });
         };
-        $scope.delete = function (task) {
+        $scope.deleteTask = function (task) {
             console.log('Removing task ' + task.name);
-            ListService.delete($scope.list, task)
+            ListService.deleteTask($scope.list, task)
                 .then(function () {
                     updateCount();
                 });
@@ -29,6 +30,15 @@ angular
                     name: $scope.name
                 });
                 $scope.name = '';
+            }
+        };
+        $scope.renameList = function () {
+            if (!$scope.list.title || $scope.list.title === '') {
+                return;
+            } else {
+                console.log('Renaming list to ' + $scope.list.title);
+                ListService.renameList($scope.list);
+                $scope.editing = false;
             }
         };
         updateCount();

@@ -7,7 +7,6 @@ var Task = require("../models/task");
 // Lists
 router.route('/lists')
     .get(function (req, res, next) {
-        console.log('Retrieving all lists');
         List.find()
             .populate({
                 path: 'tasks',
@@ -25,7 +24,7 @@ router.route('/lists')
             });
     })
     .post(function (req, res, next) {
-        let list = new List(req.body);
+        var list = new List(req.body);
 
         list.save(function (err, list) {
             if (err) {
@@ -55,8 +54,35 @@ router.get('/list/:list', function (req, res) {
     res.json(req.list);
 });
 
+router.delete('/list/:list', function (req, res) {
+    List.remove({
+        _id: req.list._id
+    }, function (err) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json({message: 'List deleted'});
+        }
+    });
+});
+
+router.put('/list/:list/rename', function (req, res) {
+    var list = req.list;
+    var title = req.body.title;
+
+    list.title = title;
+
+    list.save(function (err, list) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(list);
+        }
+    });
+});
+
 router.post('/list/:list/tasks', function (req, res, next) {
-    let task = new Task(req.body);
+    var task = new Task(req.body);
     task.list = req.list;
 
     task.save(function (err, task) {
@@ -108,10 +134,10 @@ router.delete('/list/:list/task/:task', function (req, res) {
     });
 });
 
-router.put('/list/:list/task/:task/toggle', function (req, res, next) {
+router.get('/list/:list/task/:task/toggle', function (req, res) {
     req.task.toggle(function (err, task) {
         if (err) {
-            return next(err);
+            res.send(err);
         } else {
             res.json(task);
         }

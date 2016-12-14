@@ -2,13 +2,13 @@
     <!-- Header -->
     <div class="panel-heading">
         <div class="list-title">
-            <h3 ng-hide="editList" class="panel-title" ng-bind="list.title"></h3>
-            <form class="list-title-form" ng-show="editList" ng-submit="editList = false">
+            <h3 ng-hide="editing" class="panel-title" ng-bind="list.title"></h3>
+            <form class="list-title-form" ng-show="editing" ng-submit="renameList()">
                 <input class="list-title-input" ng-model="list.title">
             </form>
         </div>
-        <div class="list-buttons" ng-hide="editList">
-            <a class="list-button-edit" href="#" ng-click="editList = true" aria-label="Edit list">
+        <div class="list-buttons" ng-hide="editing">
+            <a class="list-button-edit" href="#" ng-click="editing = true" aria-label="Edit list">
                 <span class="list-icon-edit" aria-hidden="true"></span>
             </a>
         </div>
@@ -49,7 +49,7 @@
                 </div>
             </td>
 
-            <td class="task-delete" ng-click="delete(task)">
+            <td class="task-delete" ng-click="deleteTask(task)">
                 <a class="task-button-delete" href="#" aria-label="Remove task">
                     <span class="task-icon-delete" aria-hidden="true"></span>
                 </a>

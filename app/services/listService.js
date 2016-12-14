@@ -13,6 +13,24 @@ angular.module('app.services').factory('ListService', ['$http', function ($http)
             });
     };
 
+    service.addList = function (list) {
+        return $http
+            .post('/api/lists', list)
+            .then(function (response) {
+                // Add new list
+                service.lists.push(response.data);
+            });
+    };
+
+    service.deleteList = function (list) {
+        return $http
+            .delete('api/list/' + list._id)
+            .then(function () {
+                // Delete list from memory
+                service.lists.splice(service.lists.indexOf(list), 1);
+            });
+    };
+
     service.addTask = function (list, task) {
         return $http
             .post('/api/list/' + list._id + '/tasks', task)
@@ -24,19 +42,27 @@ angular.module('app.services').factory('ListService', ['$http', function ($http)
 
     service.toggle = function (task) {
         return $http
-            .put('/api/list/' + task.list._id + '/task/' + task._id + '/toggle')
+            .get('/api/list/' + task.list._id + '/task/' + task._id + '/toggle')
             .then(function () {
                 // Toggle completion state of task
                 task.completed ^= true;
             });
     };
 
-    service.delete = function(list, task) {
+    service.deleteTask = function(list, task) {
         return $http
             .delete('/api/list/' + list._id + '/task/' + task._id)
             .then(function () {
                 // Remove deleted task from list
                 list.tasks.splice(list.tasks.indexOf(task), 1);
+            });
+    };
+
+    service.renameList = function (list) {
+        return $http
+            .put('api/list/' + list._id + '/rename', list)
+            .then(function () {
+                // Success
             });
     };
 
