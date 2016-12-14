@@ -1,6 +1,6 @@
 angular
     .module('app.core')
-    .controller('DashboardController', function ($uibModal, $scope, lists, ListService) {
+    .controller('DashboardController', function ($uibModal, $scope, $state, lists, ListService, AuthService) {
         let view = this;
 
         view.lists = lists;
@@ -44,5 +44,11 @@ angular
             }, function () {
                 console.log('Modal canceled');
             });
+        };
+
+        view.logOut = function () {
+            console.log('Logging out');
+            AuthService.logOut();
+            $state.go('login');
         };
     });

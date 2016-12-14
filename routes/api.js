@@ -1,12 +1,51 @@
 var express = require("express");
 var router = express.Router();
+var passport = require('passport');
+var jwt = require('express-jwt');
+var auth = jwt({secret: 'smbolganXrC13CUmJxYFUrgGG9HIBCuj', userProperty: 'payload'});
 
 var List = require("../models/list");
 var Task = require("../models/task");
+var User = require("../models/user");
+
+
+router.post('/register', function(req, res, next){
+    if(!req.body.username || !req.body.password){
+        return res.status(400).json({message: 'Please fill out all fields'});
+    }
+
+    var user = new User();
+
+    user.username = req.body.username;
+
+    user.setPassword(req.body.password);
+
+    user.save(function (err){
+        if(err){ return next(err); }
+
+        return res.json({token: user.generateJWT()})
+    });
+});
+
+router.post('/login', function (req, res, next) {
+    if(!req.body.username || !req.body.password){
+        return res.status(400).json({message: 'Please fill out all fields'});
+    }
+
+    passport.authenticate('local', function(err, user, info){
+        if(err){ return next(err); }
+
+        if(user){
+            return res.json({token: user.generateJWT()});
+        } else {
+            return res.status(401).json(info);
+        }
+    })(req, res, next);
+});
 
 // Lists
 router.route('/lists')
-    .get(function (req, res, next) {
+    .get(auth, function (req, res, next) {
         List.find()
             .populate({
                 path: 'tasks',
@@ -23,7 +62,7 @@ router.route('/lists')
                 }
             });
     })
-    .post(function (req, res, next) {
+    .post(auth, function (req, res, next) {
         var list = new List(req.body);
 
         list.save(function (err, list) {
@@ -50,11 +89,11 @@ router.param('list', function (req, res, next, id) {
         });
 });
 
-router.get('/list/:list', function (req, res) {
+router.get('/list/:list', auth, function (req, res) {
     res.json(req.list);
 });
 
-router.delete('/list/:list', function (req, res) {
+router.delete('/list/:list', auth, function (req, res) {
     List.remove({
         _id: req.list._id
     }, function (err) {
@@ -66,7 +105,7 @@ router.delete('/list/:list', function (req, res) {
     });
 });
 
-router.put('/list/:list/rename', function (req, res) {
+router.put('/list/:list/rename', auth, function (req, res) {
     var list = req.list;
     var title = req.body.title;
 
@@ -81,7 +120,7 @@ router.put('/list/:list/rename', function (req, res) {
     });
 });
 
-router.post('/list/:list/tasks', function (req, res, next) {
+router.post('/list/:list/tasks', auth, function (req, res, next) {
     var task = new Task(req.body);
     task.list = req.list;
 
@@ -122,7 +161,7 @@ router.param('task', function (req, res, next, id) {
         });
 });
 
-router.delete('/list/:list/task/:task', function (req, res) {
+router.delete('/list/:list/task/:task', auth, function (req, res) {
     Task.remove({
         _id: req.task._id
     }, function (err) {
@@ -134,7 +173,7 @@ router.delete('/list/:list/task/:task', function (req, res) {
     });
 });
 
-router.get('/list/:list/task/:task/toggle', function (req, res) {
+router.get('/list/:list/task/:task/toggle', auth, function (req, res) {
     req.task.toggle(function (err, task) {
         if (err) {
             res.send(err);
@@ -145,7 +184,7 @@ router.get('/list/:list/task/:task/toggle', function (req, res) {
 });
 
 router.route('/tasks')
-    .get(function (req, res, next) {
+    .get(auth, function (req, res, next) {
         Task.find(function (err, tasks) {
             if (err) {
                 return next(err);
@@ -156,10 +195,10 @@ router.route('/tasks')
     });
 
 router.route('/task/:task')
-    .get(function (req, res) {
+    .get(auth, function (req, res) {
         res.json(req.task);
     })
-    .delete(function (req, res) {
+    .delete(auth, function (req, res) {
         req.task.remove(function (err) {
             if (err) {
                 res.send(err);

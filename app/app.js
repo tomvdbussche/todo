@@ -1,5 +1,5 @@
 angular.module('todoApplication', [
-    'ngRoute',
+    'ui.router',
     'ui.bootstrap',
     'app.routes',
     'app.core',

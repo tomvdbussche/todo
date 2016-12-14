@@ -5,12 +5,18 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var indexRouter = require("./routes/index");
 var apiRouter = require("./routes/api");
-var usersRouter = require("./routes/users");
-var listModel = require("./models/list");
-var taskModel = require("./models/task");
 var mongoose = require("mongoose");
 var dotenv = require("dotenv");
 var bluebird = require("bluebird");
+var passport = require("passport");
+
+// Models
+require("./models/list");
+require("./models/task");
+require("./models/user");
+
+// Passport
+require("./config/passport");
 
 // Add promises to mongoose
 mongoose.Promise = bluebird;
@@ -58,9 +64,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+// Init passport
+app.use(passport.initialize());
+
+// Routers
 app.use('/api', apiRouter);
-app.use('/users', usersRouter);
+app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
