@@ -116,3 +116,4 @@ bower_components
 
 ### Angular templates ###
 /app/app.templates.js
+.idea/
