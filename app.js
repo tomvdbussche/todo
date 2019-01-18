@@ -50,7 +50,9 @@ if (dbPort !== null) {
 dbUrl += '/' + dbName;
 
 // Connect to database
-mongoose.connect(dbUrl);
+mongoose.connect(dbUrl, {
+    useMongoClient: true
+});
 
 var app = express();
 
